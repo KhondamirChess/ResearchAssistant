@@ -41,37 +41,37 @@ def _save(items: list[dict]) -> None:
 # ------------------------------------------------------------------- endpoints
 class ResearchRequest(BaseModel):
     question: str = Field(min_length=3, max_length=500)
-    mode: Literal["demo", "live"] = "demo"
     max_steps: int = Field(6, ge=1, le=10)
     lang: Literal["en", "ko"] = "en"
 
 
 @app.get("/api/health")
 def health():
-    return {"live_available": bool(config.ANTHROPIC_API_KEY),
-            "search_available": bool(config.TAVILY_API_KEY),
+    return {"provider": config.PROVIDER,
+            "llm_key": bool(config.LLM_API_KEY),
+            "tavily_key": bool(config.TAVILY_API_KEY),
             "model": config.MODEL}
 
 
 @app.post("/api/research")
 def research(req: ResearchRequest):
-    if req.mode == "live":
-        if not config.ANTHROPIC_API_KEY:
-            log.warning("live mode rejected: no ANTHROPIC_API_KEY")
-            raise HTTPException(400, "Live mode needs ANTHROPIC_API_KEY in .env. "
-                                     "Use Demo mode or add the key and restart the server.")
-        if not config.TAVILY_API_KEY:
-            log.warning("live mode rejected: no TAVILY_API_KEY")
-            raise HTTPException(400, "Live mode needs TAVILY_API_KEY in .env (free key at "
-                                     "app.tavily.com). Restart the server after adding it.")
+    # без ключей агент работать не может
+    if not config.LLM_API_KEY:
+        log.warning("request rejected: no %s", config.LLM_KEY_NAME)
+        raise HTTPException(400, f"{config.LLM_KEY_NAME} is missing in .env. "
+                                 "Add the key and restart the server.")
+    if not config.TAVILY_API_KEY:
+        log.warning("request rejected: no TAVILY_API_KEY")
+        raise HTTPException(400, "TAVILY_API_KEY is missing in .env (free key at "
+                                 "app.tavily.com). Restart the server after adding it.")
 
     # вопрос обрезаем, чтобы не раздувать лог
-    log.info("research start mode=%s max_steps=%d lang=%s q=%r",
-             req.mode, req.max_steps, req.lang, req.question.strip()[:80])
+    log.info("research start max_steps=%d lang=%s q=%r",
+             req.max_steps, req.lang, req.question.strip()[:80])
 
     def stream() -> Iterator[str]:
         steps, report, metrics, failed = [], None, None, False
-        for ev in run_agent(req.question.strip(), req.mode, req.max_steps, req.lang):
+        for ev in run_agent(req.question.strip(), req.max_steps, req.lang):
             if ev["type"] == "step":
                 steps.append(ev)
             elif ev["type"] == "report":
@@ -87,7 +87,7 @@ def research(req: ResearchRequest):
                  bool(report and not failed), len(steps), metrics)
         if report and not failed:
             item = {"id": uuid.uuid4().hex[:10], "question": req.question.strip(),
-                    "mode": req.mode, "lang": req.lang, "created_at": int(time.time()), "steps": steps,
+                    "lang": req.lang, "created_at": int(time.time()), "steps": steps,
                     "report": report, "metrics": metrics}
             with _lock:
                 _save([item] + _load())
@@ -98,7 +98,7 @@ def research(req: ResearchRequest):
 
 @app.get("/api/history")
 def history():
-    return [{k: i[k] for k in ("id", "question", "mode", "created_at")} for i in _load()]
+    return [{k: i[k] for k in ("id", "question", "created_at")} for i in _load()]
 
 
 @app.get("/api/history/{item_id}")

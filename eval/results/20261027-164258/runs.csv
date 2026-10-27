@@ -1,0 +1,31 @@
+id,category,difficulty,success,coverage,findings,latency_s,tool_calls,input_tokens,output_tokens,budget_hit,error,question
+q01,factual,easy,True,1.0,4,12.2,2,5922,500,False,,What is retrieval-augmented generation (RAG) and who introduced the term?
+q02,factual,easy,True,0.67,6,11.5,3,6910,659,False,,What is the ReAct prompting framework for LLM agents?
+q03,factual,easy,True,1.0,6,16.4,3,9392,644,False,,What is the transformer architecture and which paper introduced it?
+q04,factual,medium,True,0.67,7,12.4,3,6678,689,False,,What is the Model Context Protocol (MCP)?
+q05,factual,medium,True,1.0,5,12.9,2,5991,572,False,,What is the GAIA benchmark and what does it measure?
+q06,factual,medium,True,0.75,6,18.6,5,13132,860,False,,What is Reflexion in LLM agents?
+q07,factual,medium,True,1.0,5,15.0,3,6756,652,False,,What is the context window of a large language model and why does it matter?
+q08,factual,medium,True,1.0,4,9.9,2,5914,480,False,,What is the EU AI Act and when did it enter into force?
+q09,factual,hard,True,1.0,5,25.2,6,23180,1039,False,,What is Toolformer and how does it learn to use tools?
+q10,factual,hard,True,1.0,4,10.2,2,6247,462,False,,What is chain-of-thought prompting and in which paper was it proposed?
+q11,comparison,medium,True,1.0,5,19.5,5,10239,861,False,,Compare ReAct and plan-and-execute agent designs.
+q12,comparison,medium,True,1.0,8,29.2,6,12725,1137,False,,Compare dense and sparse (BM25) retrieval for RAG.
+q13,comparison,medium,True,1.0,8,29.3,7,27892,1175,False,,Compare fine-tuning and RAG for adding domain knowledge to an LLM.
+q14,comparison,medium,True,1.0,8,41.9,9,31459,1345,False,,What are the differences between open-weight and closed LLMs for research use?
+q15,comparison,hard,True,1.0,7,37.8,8,19370,1307,False,,Compare single-agent and multi-agent LLM systems for complex tasks.
+q16,comparison,medium,True,1.0,7,37.7,10,21328,1456,False,,"Compare vector databases such as FAISS, Chroma and Pinecone."
+q17,comparison,hard,True,0.75,10,48.1,8,26108,1548,False,,"Compare automatic metrics (BLEU, ROUGE) with LLM-as-a-judge for evaluating generated text."
+q18,comparison,medium,True,1.0,7,38.1,6,12603,1060,False,,"How do web search APIs for LLM agents (e.g. Tavily, Bing, SerpAPI) differ?"
+q19,comparison,hard,True,1.0,6,34.9,7,18103,1048,False,,"Compare prompt engineering, few-shot learning and instruction tuning."
+q20,comparison,medium,True,1.0,8,45.2,9,28678,1377,False,,"Compare OpenAI Deep Research, Gemini Deep Research and open-source research agents like GPT Researcher."
+q21,limitations,medium,True,0.75,9,28.5,7,14604,1143,False,,What are the main limitations of retrieval-augmented generation?
+q22,limitations,medium,True,0.75,7,31.3,8,19209,1231,False,,Why do LLMs hallucinate citations and how can this be reduced?
+q23,limitations,hard,True,1.0,7,34.9,9,27475,1333,False,,How can research agents defend against prompt injection from web pages?
+q24,limitations,medium,True,0.75,8,34.0,9,32939,1372,False,,What are the risks of using LLM agents for academic literature reviews?
+q25,limitations,hard,True,1.0,8,30.5,8,18917,1236,False,,Do larger language models always perform better? What is known about scaling limits?
+q26,limitations,medium,True,1.0,7,29.7,6,15169,1025,False,,What are the environmental costs of training and running large language models?
+q27,limitations,hard,True,1.0,6,24.6,5,13986,974,False,,Is LLM-as-a-judge evaluation reliable?
+q28,limitations,medium,True,1.0,7,31.5,7,17897,1145,False,,What copyright issues arise from training LLMs on web data?
+q29,limitations,hard,True,0.5,6,53.5,10,30493,1433,False,,"How well do current LLM agents perform on long, multi-step tasks?"
+q30,limitations,medium,True,0.5,8,101.5,7,15639,1210,False,,What are the privacy risks of sending user documents to LLM APIs?

@@ -13,8 +13,6 @@ body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica
 header{max-width:1240px;margin:0 auto;padding:22px 24px 6px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
 h1{margin:0;font-size:26px;color:var(--navy)}
 .sub{color:var(--gray);margin-top:4px}
-.badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:bold;background:var(--lblue);color:var(--navy)}
-.badge.live{background:#E3F4EC;color:var(--green)}
 main{max-width:1240px;margin:0 auto;padding:12px 24px 40px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:20px}
 .card{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:18px}
 .full{grid-column:1/-1}
@@ -25,14 +23,12 @@ textarea:focus,select:focus,button:focus-visible{outline:2px solid var(--orange)
 .seg{display:inline-flex;border:1px solid var(--border);border-radius:10px;overflow:hidden}
 .seg button{border:0;background:#fff;padding:8px 14px;cursor:pointer;font:inherit;color:var(--gray)}
 .seg button.on{background:var(--navy);color:#fff}
-.seg button:disabled{opacity:.45;cursor:not-allowed}
 select{padding:8px;border:1px solid var(--border);border-radius:10px;font:inherit;background:#fff}
 .btn{border:0;border-radius:10px;padding:10px 18px;font:inherit;font-weight:bold;cursor:pointer}
 .btn.primary{background:var(--orange);color:#fff}.btn.primary:hover{background:var(--dorange)}
 .btn.ghost{background:#fff;border:1px solid var(--border);color:var(--navy)}.btn.ghost:hover{background:var(--lblue)}
 .btn.stop{background:var(--red);color:#fff}
 .btn:disabled{opacity:.45;cursor:not-allowed}
-.hint{font-size:12px;color:var(--gray);margin-top:8px}
 .err{background:#FBEAEA;border:1px solid #E7B9B9;color:#7A2B2B;border-radius:10px;padding:10px 12px;margin-top:12px;display:none}
 /* trace */
 .trace{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;max-height:560px;overflow:auto}
@@ -43,9 +39,6 @@ select{padding:8px;border:1px solid var(--border);border-radius:10px;font:inheri
 .st-title{font-weight:bold;color:var(--navy)}
 .st-detail{color:var(--gray);font-size:12.5px;word-break:break-word}
 .empty{color:var(--gray);padding:18px 4px}
-.metrics{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
-.metric{background:var(--lblue);border-radius:10px;padding:8px 12px;min-width:92px}
-.metric b{display:block;font-size:18px;color:var(--navy)}.metric span{font-size:11px;color:var(--gray)}
 /* report */
 .rhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
 .rhead h2{margin:0;font-size:18px;color:var(--navy)}
@@ -73,7 +66,6 @@ select{padding:8px;border:1px solid var(--border);border-radius:10px;font:inheri
       <button type="button" data-lang="en">English</button>
       <button type="button" data-lang="ko">한국어</button>
     </div>
-    <span id="status" class="badge"></span>
   </div>
 </header>
 
@@ -82,10 +74,6 @@ select{padding:8px;border:1px solid var(--border);border-radius:10px;font:inheri
     <div class="label" data-i18n="question"></div>
     <textarea id="q" maxlength="500"></textarea>
     <div class="row">
-      <div class="seg" role="group" aria-label="Mode">
-        <button id="m-demo" class="on" type="button" data-i18n="demo"></button>
-        <button id="m-live" type="button" data-i18n="live"></button>
-      </div>
       <label><span data-i18n="maxSteps"></span>
         <select id="steps"><option>3</option><option>4</option><option selected>6</option><option>8</option><option>10</option></select>
       </label>
@@ -93,14 +81,12 @@ select{padding:8px;border:1px solid var(--border);border-radius:10px;font:inheri
       <button id="stop" class="btn stop" type="button" hidden data-i18n="stop"></button>
       <button id="reset" class="btn ghost" type="button" data-i18n="clear"></button>
     </div>
-    <div class="hint" id="modehint"></div>
     <div class="err" id="err" role="alert"></div>
   </section>
 
   <section class="card">
     <div class="label" data-i18n="traceLabel"></div>
     <ul class="trace" id="trace"></ul>
-    <div class="metrics" id="metrics"></div>
   </section>
 
   <section class="card">
@@ -131,40 +117,30 @@ const I18N = {
   en: {
     title: "LLM-Based Agentic Research Assistant",
     sub: "Ask a research question. The agent plans, searches, reads and writes a list of findings.",
-    stChecking: "checking backend…", stDemo: "Backend connected · demo only", stLive: "Backend connected · live ready", stOff: "Backend not reachable",
-    liveLocked: "Add ANTHROPIC_API_KEY and TAVILY_API_KEY to .env and restart the server",
     question: "Research question", placeholder: "Type your research question…",
-    demo: "Demo", live: "Live", maxSteps: "Max steps",
+    maxSteps: "Max steps",
     run: "Run research", running: "Running…", stop: "Stop", clear: "Clear",
-    hintDemo: "Demo mode uses mock data, so it works without any API keys.",
-    hintLive: "Live mode calls Claude ({model}) and Tavily. It uses your API credits.",
     traceLabel: "Agent trace · Plan → Act → Observe → Reflect → Write",
     traceEmpty: "The agent's steps will appear here.",
     report: "Report", reportEmpty: "The list of findings will appear here.",
     working: "Working…", noReport: "No report was produced.",
     count: "{n} findings", copy: "Copy", copied: "Copied ✓", copyFail: "Copy failed", download: "Download .md",
     history: "History", clearHistory: "Clear history", noHistory: "No past runs yet.", confirmDel: "Delete all saved runs?",
-    tooShort: "Type a research question first (at least 3 characters).", stopped: "Stopped by user",
-    mTime: "total time", mCalls: "tool calls", mTokens: "tokens", mCost: "cost", mModel: "model", mDemo: "mock"
+    tooShort: "Type a research question first (at least 3 characters).", stopped: "Stopped by user"
   },
   ko: {
     title: "LLM 기반 에이전트형 리서치 어시스턴트",
     sub: "연구 질문을 입력하세요. 에이전트가 계획을 세우고, 검색하고, 읽고, 조사 결과 목록을 작성합니다.",
-    stChecking: "백엔드 확인 중…", stDemo: "백엔드 연결됨 · 데모 전용", stLive: "백엔드 연결됨 · 라이브 사용 가능", stOff: "백엔드에 연결할 수 없음",
-    liveLocked: ".env에 ANTHROPIC_API_KEY와 TAVILY_API_KEY를 추가한 뒤 서버를 다시 시작하세요",
     question: "연구 질문", placeholder: "연구 질문을 입력하세요…",
-    demo: "데모", live: "라이브", maxSteps: "최대 단계",
+    maxSteps: "최대 단계",
     run: "리서치 실행", running: "실행 중…", stop: "중지", clear: "지우기",
-    hintDemo: "데모 모드는 목업 데이터를 사용하므로 API 키 없이 동작합니다.",
-    hintLive: "라이브 모드는 Claude({model})와 Tavily를 호출하며 API 크레딧을 사용합니다.",
     traceLabel: "에이전트 추적 · 계획 → 실행 → 관찰 → 성찰 → 작성",
     traceEmpty: "에이전트의 단계가 여기에 표시됩니다.",
     report: "보고서", reportEmpty: "조사 결과 목록이 여기에 표시됩니다.",
     working: "작업 중…", noReport: "보고서가 생성되지 않았습니다.",
     count: "조사 결과 {n}건", copy: "복사", copied: "복사됨 ✓", copyFail: "복사 실패", download: ".md 다운로드",
     history: "기록", clearHistory: "기록 지우기", noHistory: "아직 실행 기록이 없습니다.", confirmDel: "저장된 모든 실행 기록을 삭제할까요?",
-    tooShort: "먼저 연구 질문을 입력하세요(3자 이상).", stopped: "사용자가 중지함",
-    mTime: "총 시간", mCalls: "도구 호출", mTokens: "토큰", mCost: "비용", mModel: "모델", mDemo: "목업"
+    tooShort: "먼저 연구 질문을 입력하세요(3자 이상).", stopped: "사용자가 중지함"
   }
 };
 const LANG_CODES = Object.keys(I18N);
@@ -179,8 +155,8 @@ let lang = pickLang();
 const t = (k, vars = {}) => (I18N[lang][k] ?? I18N.en[k] ?? k).replace(/\{(\w+)\}/g, (_, v) => vars[v] ?? "");
 
 const PHASE_NUM = {plan:"1", act:"2", observe:"3", reflect:"4", write:"5", stop:"■"};
-let mode = "demo", abortCtl = null, running = false, lastReport = null, lastQuestion = "", health = {};
-let statusKey = "stChecking", lastMetrics = null, traceEmpty = true, reportState = "empty";
+let abortCtl = null, running = false, lastReport = null, lastQuestion = "";
+let traceEmpty = true, reportState = "empty";
 
 // build elements safely (text only, never innerHTML with model output)
 function el(tag, attrs = {}, ...kids) {
@@ -200,10 +176,7 @@ function applyLang() {
   $("q").placeholder = t("placeholder");
   $("run").textContent = running ? t("running") : t("run");
   $("copy").textContent = t("copy");
-  renderStatus(); setMode(mode);
-  $("m-live").title = (health.live_available && health.search_available) ? "" : t("liveLocked");
   if (traceEmpty) showTraceEmpty();
-  if (lastMetrics) renderMetrics(lastMetrics);
   if (lastReport) renderReport(lastReport); else renderReportState();
   loadHistory();
 }
@@ -213,36 +186,11 @@ document.querySelectorAll("#langsw button").forEach(b => b.onclick = () => {
   applyLang();
 });
 
-/* ---------- mode & status ---------- */
-function setMode(m) {
-  mode = m;
-  $("m-demo").classList.toggle("on", m === "demo");
-  $("m-live").classList.toggle("on", m === "live");
-  $("modehint").textContent = m === "demo" ? t("hintDemo") : t("hintLive", {model: health.model || "?"});
-}
-$("m-demo").onclick = () => setMode("demo");
-$("m-live").onclick = () => setMode("live");
-
-function renderStatus() {
-  $("status").textContent = t(statusKey);
-  $("status").className = "badge" + (statusKey === "stLive" ? " live" : "");
-}
-async function loadHealth() {
-  try {
-    health = await (await fetch("/api/health")).json();
-    const ready = health.live_available && health.search_available;
-    statusKey = ready ? "stLive" : "stDemo";
-    $("m-live").disabled = !ready;
-    $("m-live").title = ready ? "" : t("liveLocked");
-  } catch (e) { statusKey = "stOff"; }
-  renderStatus(); setMode(mode);
-}
-
-/* ---------- trace & metrics ---------- */
+/* ---------- trace ---------- */
 function showTraceEmpty() { traceEmpty = true; $("trace").replaceChildren(el("li", {class: "empty", text: t("traceEmpty")})); }
 function clearTrace() {
-  traceEmpty = false; lastMetrics = null;
-  $("trace").replaceChildren(); $("metrics").replaceChildren();
+  traceEmpty = false;
+  $("trace").replaceChildren();
 }
 function addStep(s) {
   if (traceEmpty) clearTrace();
@@ -252,18 +200,6 @@ function addStep(s) {
       s.detail ? el("div", {class: "st-detail", text: s.detail}) : null));
   $("trace").append(li);
   li.scrollIntoView({block: "nearest"});
-}
-function renderMetrics(m) {
-  lastMetrics = m;
-  const box = $("metrics"); box.replaceChildren();
-  const add = (v, l) => box.append(el("div", {class: "metric"}, el("b", {text: String(v)}), el("span", {text: l})));
-  add(m.latency_s + " s", t("mTime"));
-  add(m.steps, t("mCalls"));
-  if (m.mode === "live") {
-    add(m.input_tokens + m.output_tokens, t("mTokens"));
-    if (m.cost_usd != null) add("$" + m.cost_usd, t("mCost"));
-  }
-  add(m.mode === "live" ? m.model : t("mDemo"), t("mModel"));
 }
 
 /* ---------- report: a plain list of findings ---------- */
@@ -299,7 +235,6 @@ function setRunning(v) {
 function handle(ev) {
   if (ev.type === "step") addStep(ev);
   else if (ev.type === "report") renderReport(ev.report);
-  else if (ev.type === "metrics") renderMetrics(ev);
   else if (ev.type === "error") showError(ev.message);
 }
 
@@ -313,7 +248,7 @@ async function run() {
   try {
     const res = await fetch("/api/research", {
       method: "POST", headers: {"Content-Type": "application/json"}, signal: abortCtl.signal,
-      body: JSON.stringify({question: q, mode, max_steps: Number($("steps").value), lang})
+      body: JSON.stringify({question: q, max_steps: Number($("steps").value), lang})
     });
     if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.detail || ("HTTP " + res.status)); }
     const reader = res.body.getReader(), dec = new TextDecoder(); let buf = "";
@@ -340,8 +275,8 @@ $("stop").onclick = () => abortCtl && abortCtl.abort();
 $("q").addEventListener("keydown", e => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey) && !running) run(); });
 $("reset").onclick = () => {
   if (running) return;
-  $("q").value = ""; $("err").style.display = "none"; lastReport = null; lastMetrics = null;
-  showTraceEmpty(); $("metrics").replaceChildren();
+  $("q").value = ""; $("err").style.display = "none"; lastReport = null;
+  showTraceEmpty();
   reportState = "empty"; renderReportState();
   $("copy").disabled = $("dl").disabled = true;
 };
@@ -366,7 +301,7 @@ async function loadHistory() {
     if (!items.length) { ul.append(el("li", {class: "empty", text: t("noHistory")})); return; }
     items.forEach(it => {
       const when = new Date(it.created_at * 1000).toLocaleString(lang, {month: "short", day: "numeric", hour: "2-digit", minute: "2-digit"});
-      const b = el("button", {type: "button"}, el("span", {text: it.question}), el("small", {text: it.mode + " · " + when}));
+      const b = el("button", {type: "button"}, el("span", {text: it.question}), el("small", {text: when}));
       b.onclick = () => openHistory(it.id);
       ul.append(el("li", {}, b));
     });
@@ -377,7 +312,6 @@ async function openHistory(id) {
   const it = await (await fetch("/api/history/" + encodeURIComponent(id))).json();
   $("q").value = it.question; lastQuestion = it.question; $("err").style.display = "none";
   clearTrace(); it.steps.forEach(addStep);
-  if (it.metrics) renderMetrics(it.metrics);
   renderReport(it.report);
   window.scrollTo({top: 0, behavior: "smooth"});
 }
@@ -386,7 +320,7 @@ $("clearhist").onclick = async () => {
   await fetch("/api/history", {method: "DELETE"}); loadHistory();
 };
 
-applyLang(); loadHealth();
+applyLang();
 </script>
 </body>
 </html>

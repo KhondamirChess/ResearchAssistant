@@ -3,7 +3,7 @@
 set -e
 cd "$(dirname "$0")"
 [ -d .venv ] || python3 -m venv .venv
-source .venv/bin/activate
-pip install -q -r requirements.txt
+# вызываем pip и uvicorn через python из .venv: так работает, даже если папку проекта перенесли
+.venv/bin/python -m pip install -q -r requirements.txt
 [ -f .env ] || cp .env.example .env
-exec uvicorn backend.app:app --reload --port 8000
+exec .venv/bin/python -m uvicorn backend.app:app --reload --port 8000

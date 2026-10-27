@@ -1,0 +1,4212 @@
+[
+  {
+    "id": "q01",
+    "category": "factual",
+    "difficulty": "easy",
+    "question": "What is retrieval-augmented generation (RAG) and who introduced the term?",
+    "expected_points": "combines a retriever with a generator; external documents are added to the model context; introduced by Lewis et al. (2020, Facebook AI)",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll help you find information about retrieval-augmented generation (RAG) and its origins. Let me search for this."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "retrieval-augmented generation RAG who introduced term"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Retrieval-Augmented Generation (RAG): The AI Developer's Gui; What is retrieval-augmented generation? - ServiceNow; Retrieval Augmented Generation (rag): Overview, History & Pr"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Great! I have good information. Let me get more details about what RAG actually is from one of these sources."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.servicenow.com/ai/what-is-retrieval-augmented-generation.html"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"What is retrieval-augmented generation? - ServiceNow\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Perfect! I now have comprehensive information to answer the question. Let me compile the findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "4 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Retrieval-augmented generation (RAG) is a technique that enhances large language models by integrating them with external knowledge sources, allowing models to retrieve and incorporate new information from external data sources without needing to be retrained.",
+        "The term 'retrieval-augmented generation' was introduced by Patrick Lewis and his co-authors in a 2020 paper titled 'Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks,' which was submitted to arXiv on May 22, 2020, and published at NeurIPS 2020.",
+        "RAG works by first gathering data from various sources such as websites, databases, or documents, converting this data into a searchable format that creates an external knowledge library, which the language model can then access when generating responses.",
+        "The original RAG paper was authored by twelve researchers led by Patrick Lewis, representing institutions including Facebook AI Research, University College London, and New York University."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 12.2,
+      "steps": 2,
+      "input_tokens": 5922,
+      "output_tokens": 500,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1038,
+    "coverage": 1.0
+  },
+  {
+    "id": "q02",
+    "category": "factual",
+    "difficulty": "easy",
+    "question": "What is the ReAct prompting framework for LLM agents?",
+    "expected_points": "interleaves reasoning traces and actions; observations from tools feed the next step; Yao et al. 2022",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information about the ReAct prompting framework for LLM agents."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "ReAct prompting framework LLM agents"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. On the Brittle Foundations of ReAct Prompting for Agentic La; What is a ReAct Agent? | IBM; ReAct Prompting | Prompt Engineering Guide<!-- -->"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more detailed information from a couple of these sources."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.ibm.com/think/topics/react-agent"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"What is a ReAct Agent? | IBM\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.promptingguide.ai/techniques/react"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Prompt Engineering Guide\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Now I have comprehensive information about ReAct. Let me compile the findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "6 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "ReAct (Reasoning and Acting) is a framework introduced by Yao et al. in 2023 that enables LLMs to generate both reasoning traces and task-specific actions in an interleaved manner to solve complex tasks.",
+        "The ReAct framework structures AI agent behavior through a repeated loop of three components: Thought (reasoning steps that help decompose tasks), Action (using tools, making API calls, or gathering external information), and Observation (feedback from the environment based on the action taken).",
+        "ReAct enhances chain-of-thought (CoT) prompting by combining internal reasoning with external tool use, allowing LLMs to access real-time information from sources like search engines and knowledge bases rather than relying solely on training data.",
+        "Unlike traditional AI systems that separate decision-making from task execution, ReAct agents use the LLM as the 'brain' to coordinate reasoning and action-taking simultaneously, enabling more complex problem-solving and autonomous planning.",
+        "ReAct improves performance on knowledge-intensive reasoning tasks such as question answering and fact verification by allowing the model to retrieve information to support reasoning, while reasoning helps target what to retrieve next.",
+        "The ReAct framework provides versatility in that agents can be configured to work with a wide variety of external tools and APIs, improving human interpretability and trustworthiness of LLM behavior."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 11.5,
+      "steps": 3,
+      "input_tokens": 6910,
+      "output_tokens": 659,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      false
+    ],
+    "judge_tokens": 1121,
+    "coverage": 0.6666666666666666
+  },
+  {
+    "id": "q03",
+    "category": "factual",
+    "difficulty": "easy",
+    "question": "What is the transformer architecture and which paper introduced it?",
+    "expected_points": "based on self-attention without recurrence; 'Attention Is All You Need'; Vaswani et al. 2017",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information about the transformer architecture and the paper that introduced it."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "transformer architecture paper introduced"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Attention Is All You Need: How the Transformer Architecture ; Attention Is All You Need - Wikipedia; Transformer Architecture: “Attention is All You Need”"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Now let me read one of these sources to get more detailed information about the transformer architecture itself."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://en.wikipedia.org/wiki/Transformer_(deep_learning)"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Transformer (deep learning) - Wikipedia\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more detailed information about the key components and concepts of the transformer architecture."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.cow-shed.com/blog/attention-is-all-you-need-transformer-architecture"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Attention Is All You Need: How the Transformer Architecture Changed Modern AI - \""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Based on my research, I have sufficient information to provide a comprehensive answer. Let me compile the findings:"
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "6 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "The Transformer architecture was introduced in the 2017 paper \"Attention Is All You Need\" by Ashish Vaswani and colleagues at Google Research.",
+        "The Transformer is a neural network architecture based on self-attention mechanisms that processes sequential data in parallel rather than sequentially, unlike earlier RNNs and LSTMs.",
+        "The core components of a Transformer include: tokenizers, embedding layers, and transformer layers consisting of alternating attention and feedforward layers, with scaled dot-product attention units that use query, key, and value weight matrices.",
+        "The Transformer architecture can be configured as encoder-only models (like BERT) for understanding tasks, decoder-only models (like GPT) for generation tasks, or encoder-decoder models for tasks like machine translation.",
+        "The Transformer's parallelizability was a key advantage over previous architectures, enabling faster training on GPUs and allowing for training of significantly larger models.",
+        "Self-attention allows the model to process entire sequences at once, enabling each position to directly attend to all other positions and extract linguistic information more effectively than sequential processing models."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 16.4,
+      "steps": 3,
+      "input_tokens": 9392,
+      "output_tokens": 644,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1062,
+    "coverage": 1.0
+  },
+  {
+    "id": "q04",
+    "category": "factual",
+    "difficulty": "medium",
+    "question": "What is the Model Context Protocol (MCP)?",
+    "expected_points": "open protocol introduced by Anthropic in 2024; standard way to connect LLM apps to tools and data sources; client-server design",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll help you research the Model Context Protocol (MCP). Let me search for information about this technology."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "Model Context Protocol MCP"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Specification - Model Context Protocol; MCP Explained: The Model Context Protocol in 2026; What is the Model Context Protocol (MCP)? - Model Context Pr"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more detailed information from the official specification:"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://modelcontextprotocol.io/specification/2025-06-18"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Specification - Model Context Protocol\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://modelcontextprotocol.io/docs/2026-07-28/getting-started/intro"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"What is the Model Context Protocol (MCP)? - Model Context Protocol\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Based on my research, I now have comprehensive information about the Model Context Protocol. Let me compile the findings:"
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "7 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "The Model Context Protocol (MCP) is an open-source standard that enables seamless integration between large language model (LLM) applications like Claude and ChatGPT and external data sources, tools, and systems.",
+        "MCP is often described as 'the USB-C of AI' because it provides a standardized way to connect AI applications to external systems, similar to how USB-C provides a universal connector for electronic devices.",
+        "MCP uses JSON-RPC 2.0 messages for communication between hosts (LLM applications), clients (connectors), and servers (services providing context and capabilities).",
+        "Through MCP, servers can offer three main features: Resources (context and data), Prompts (templated messages and workflows), and Tools (functions for AI models to execute).",
+        "MCP enables AI agents to access external systems such as calendars, databases, design tools, and document repositories, allowing them to perform personalized tasks and access enterprise data.",
+        "MCP is supported by a broad ecosystem including AI assistants (Claude, ChatGPT), development tools (Visual Studio Code, Cursor), and other platforms, making it easy to build integrations once and use them across multiple applications.",
+        "Security is a key consideration in MCP design, with principles emphasizing user consent and control over data access and operations, as well as clear user interfaces for reviewing data sharing and actions."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 12.4,
+      "steps": 3,
+      "input_tokens": 6678,
+      "output_tokens": 689,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      false,
+      true,
+      true
+    ],
+    "judge_tokens": 1121,
+    "coverage": 0.6666666666666666
+  },
+  {
+    "id": "q05",
+    "category": "factual",
+    "difficulty": "medium",
+    "question": "What is the GAIA benchmark and what does it measure?",
+    "expected_points": "benchmark for general AI assistants; real-world questions needing web browsing, tool use and reasoning; easy for humans, hard for models",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information about the GAIA benchmark to explain what it is and what it measures."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "GAIA benchmark what does it measure"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. GAIA Benchmark: What It Measures for Enterprise AI | CustomG; GAIA Benchmark: evaluating intelligent agents — WorkOS; GAIA Leaderboard & Scores — August 2026 | BenchLM.ai"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more detailed information from one of these sources to provide a comprehensive answer."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://customgpt.ai/what-gaia-benchmark-measures-ai-agents"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"GAIA Benchmark: What It Measures for Enterprise AI | CustomGPT.ai\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Based on my research, I now have comprehensive information about the GAIA benchmark. Let me provide the findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "5 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "GAIA (General AI Assistants) is a benchmark designed to evaluate AI agents on real-world, multi-step tasks rather than isolated question-answering, created by researchers from Meta-FAIR, Hugging Face, AutoGPT, and others, and accepted at ICLR 2024.",
+        "The benchmark measures whether AI systems can complete tasks that are conceptually simple for humans but require multi-step reasoning, web browsing, tool use, and multimodal understanding—evaluating practical assistant capabilities rather than academic knowledge alone.",
+        "GAIA contains over 450 non-trivial questions with unambiguous answers organized into three difficulty levels: Level 1 tasks solvable by strong LLM systems alone, Level 2 tasks requiring multiple tools combined, and Level 3 tasks involving long-horizon plans with many intermediate actions.",
+        "The benchmark evaluates AI agents on specific dimensions including tooling, prompting, search capabilities, and autonomy, requiring agents to integrate reasoning, retrieval, tool use, and answer formatting into a complete working loop.",
+        "GAIA tasks often include attached files and demand precise answers (specific names, numbers, dates, or short phrases) rather than long explanatory prose, pushing the benchmark closer to real knowledge work than traditional academic benchmarks."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 12.9,
+      "steps": 2,
+      "input_tokens": 5991,
+      "output_tokens": 572,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1104,
+    "coverage": 1.0
+  },
+  {
+    "id": "q06",
+    "category": "factual",
+    "difficulty": "medium",
+    "question": "What is Reflexion in LLM agents?",
+    "expected_points": "agent writes verbal self-reflection after failure; reflection stored in memory for next attempt; no weight updates; Shinn et al. 2023",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information about Reflexion in LLM agents to provide you with a comprehensive answer."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "Reflexion LLM agents"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Reflection Agents; Reflexion | Prompt Engineering Guide<!-- -->; Reflexion | Proceedings of the 37th International Conference"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "Reflexion framework language models agents architecture"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Building a Self-Correcting AI: A Deep Dive into the Reflexio; NeurIPS Poster Reflexion: language agents with verbal reinfo; Reflexion: language agents with verbal reinforcement learnin"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Now let me read the detailed information from the Prompt Engineering Guide and OpenReview pages to get more comprehensive details."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.promptingguide.ai/techniques/reflexion"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Prompt Engineering Guide\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://openreview.net/forum?id=vAElhFcKW6"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "1 relevant passages from \"Verifying your browser\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me try reading the arXiv paper to get more detailed information."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/abs/2303.11366"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Reflexion: Language Agents with Verbal Reinforcement Learning\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Based on my research, I have gathered comprehensive information about Reflexion in LLM agents. Let me compile the findings:"
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "6 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Reflexion is a framework that reinforces language-based agents through linguistic feedback rather than weight updates, allowing agents to learn from trial-and-error without extensive retraining or model fine-tuning.",
+        "The framework converts environmental feedback (either free-form language or scalar values) into self-reflective linguistic feedback that is stored in memory and used to guide the agent's future actions and decisions.",
+        "Reflexion consists of three key components: (1) an Actor that generates text and actions based on observations, (2) an Evaluator that scores the Actor's outputs and produces reward signals, and (3) a Self-Reflection model that generates verbal reinforcement cues for improvement.",
+        "The agent maintains both short-term memory (current trajectory) and long-term episodic memory (previous reflections) to enable rapid learning and improved decision-making across multiple episodes.",
+        "Reflexion has demonstrated significant performance improvements across diverse tasks: achieving 91% pass@1 on HumanEval coding tasks, substantially outperforming ReAct on AlfWorld sequential decision-making tasks, and improving performance on reasoning tasks like HotPotQA.",
+        "The framework extends the ReAct prompting approach by adding self-evaluation and self-reflection components, enabling agents to iteratively optimize their behavior without updating model weights."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 18.6,
+      "steps": 5,
+      "input_tokens": 13132,
+      "output_tokens": 860,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      false
+    ],
+    "judge_tokens": 1115,
+    "coverage": 0.75
+  },
+  {
+    "id": "q07",
+    "category": "factual",
+    "difficulty": "medium",
+    "question": "What is the context window of a large language model and why does it matter?",
+    "expected_points": "maximum number of tokens the model can process at once; limits how much retrieved text fits; long inputs raise cost and latency",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information about the context window of large language models and why it's important."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "context window large language model what is why matters"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Context window - Wikipedia; Context Window in LLMs: What It Is and Why It Matters; What is a context window? | IBM"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Good start. Let me get more detailed information from one of these sources to fully understand why context window matters."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.ibm.com/think/topics/context-window"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"What is a context window? | IBM\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.comet.com/site/blog/context-window"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Context Window: What It Is and Why It Matters for AI Agents\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Excellent! I have comprehensive information about context windows and why they matter. Let me compile the findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "5 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "A context window is the maximum amount of text (measured in tokens) that a large language model can hold and consider at one time while generating a response, functioning like the model's working memory. Tokens are units of text roughly equivalent to three-fourths of a word or four characters, with approximately 1.5 tokens per word.",
+        "Larger context windows enable LLMs to process longer documents, maintain longer conversations, and incorporate more information into outputs. Generally, increasing context window size improves accuracy, reduces hallucinations, and produces more coherent responses.",
+        "Context windows matter because when input (prompts, conversation history, documents, or code) exceeds the model's context limit, it must be truncated or summarized for processing. This can lead to the model forgetting earlier details in conversations or missing important information.",
+        "For AI agents executing multi-step workflows, context windows are a critical constraint because context accumulates across each LLM call, and agent failures from exceeding context limits are often invisible—the agent continues working confidently with incomplete information and produces incorrect results.",
+        "The main tradeoff of larger context windows is increased computational power requirements and higher costs, along with potential increased vulnerability to adversarial attacks. Interestingly, LLMs can still miss information buried in the middle of context even when it technically fits within the window."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 15.0,
+      "steps": 3,
+      "input_tokens": 6756,
+      "output_tokens": 652,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1111,
+    "coverage": 1.0
+  },
+  {
+    "id": "q08",
+    "category": "factual",
+    "difficulty": "medium",
+    "question": "What is the EU AI Act and when did it enter into force?",
+    "expected_points": "EU regulation on AI with risk-based categories; entered into force August 2024; obligations phase in over several years",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information about the EU AI Act and when it entered into force."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "EU AI Act when did it enter into force"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. The EU Artificial Intelligence (AI) Act | FAQs; The EU AI Act: A Primer | Center for Security and Emerging T; Long awaited EU AI Act becomes law after publication in the "
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Now let me get more detailed information about what the EU AI Act actually is:"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://cset.georgetown.edu/article/the-eu-ai-act-a-primer"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"The EU AI Act: A Primer | Center for Security and Emerging Technology\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Perfect! I now have enough information to provide a comprehensive answer. Let me compile the findings:"
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "4 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "The EU AI Act (Regulation (EU) 2024/1689) is a comprehensive legal framework governing the sale and use of artificial intelligence in the European Union, designed to ensure consistent standards for AI systems across EU member states and safeguard the health, safety, and fundamental rights of EU citizens.",
+        "The EU AI Act entered into force on 1 August 2024, which was 20 days after its publication in the EU Official Journal on 12 July 2024.",
+        "The Act was passed by the European Parliament on 13 March 2024 and approved by the EU Council on 21 May 2024, following years of preparation and negotiation.",
+        "Different provisions of the Act became effective at different times: rules on AI literacy and bans on prohibited AI practices applied from 2 February 2025, and rules for general purpose AI models applied from 2 August 2025, with full application scheduled for 2 August 2027."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 9.9,
+      "steps": 2,
+      "input_tokens": 5914,
+      "output_tokens": 480,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1032,
+    "coverage": 1.0
+  },
+  {
+    "id": "q09",
+    "category": "factual",
+    "difficulty": "hard",
+    "question": "What is Toolformer and how does it learn to use tools?",
+    "expected_points": "Meta AI 2023 (Schick et al.); model annotates its own training data with API calls; keeps calls that reduce loss; self-supervised",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information about Toolformer and how it learns to use tools."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "Toolformer how it learns to use tools"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Toolformer: How Language Models Learn to Use Tools by Themse; Paper page - Toolformer: Language Models Can Teach Themselve; Timo Schick | Toolformer: Language Models Can Teach Themselv"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more detailed information from the official paper:"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://huggingface.co/papers/2302.04761"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "3 relevant passages from \"Paper page - Toolformer: Language Models Can Teach Themselves to Use Tools\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://ai.meta.com/research/publications/toolformer-language-models-can-teach-themselves-to-use-tools"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "3 relevant passages from \"Toolformer: Language Models Can Teach Themselves to Use Tools\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more specific details about the training mechanism and self-supervised learning process:"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "Toolformer self-supervised training API calls mechanism"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Vinija's Notes • Models • Toolformer; What is Toolformer? - by Michael Spencer; Toolformer: Language Models Can Teach Themselves to Use Tool"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://vinija.ai/models/Toolformer"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Models • Toolformer\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more specific details about the training process:"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://sino-huang.github.io/posts/timo_schick-toolformer-language-models-can-teach-themselves-to-use-tools-2023/"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Timo_schick Toolformer Language Models Can Teach Themselves to Use Tools 2023\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Perfect! I now have enough comprehensive information to provide a detailed answer. Let me compile the findings:"
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "5 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Toolformer is a language model (based on GPT-J with 6.7 billion parameters) developed by Meta AI that learns to use external tools via simple APIs, including calculators, search engines, Q&A systems, translation tools, and calendars, while maintaining its core language modeling abilities.",
+        "Toolformer learns to use tools through a three-step self-supervised process: (1) the model annotates a large language modeling dataset with potential API calls at various positions, (2) a self-supervised loss is used to filter and identify which API calls actually reduce loss and help predict future tokens, and (3) the model is fine-tuned on the API calls it determines to be useful.",
+        "The model decides when to use a tool by generating a special token (represented as '<API>' or '→') at specific positions during text generation, and learns to determine which API to call, what arguments to pass, and how to incorporate the results into future token predictions.",
+        "Toolformer's learning approach requires only a handful of demonstrations for each API, avoiding the need for large amounts of human annotations, which allows the model to discover what is genuinely useful for its own token prediction rather than relying on human judgments of usefulness.",
+        "During inference, the decoding process is interrupted when the model produces the API token, the corresponding API is called to get a response, and then decoding continues with the API result incorporated, enabling the model to seamlessly integrate tool use with language generation."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 25.2,
+      "steps": 6,
+      "input_tokens": 23180,
+      "output_tokens": 1039,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1156,
+    "coverage": 1.0
+  },
+  {
+    "id": "q10",
+    "category": "factual",
+    "difficulty": "hard",
+    "question": "What is chain-of-thought prompting and in which paper was it proposed?",
+    "expected_points": "prompting model to write intermediate reasoning steps; improves multi-step reasoning in large models; Wei et al. 2022",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information about chain-of-thought prompting and its original proposal."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "chain-of-thought prompting original paper proposed"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Chain-of-Thought Prompting Elicits Reasoning in Large ...; Chain-of-Thought Prompting | Prompt Engineering Guide<!-- --; What is chain of thought (CoT) prompting? | IBM"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me read the original paper to get more specific details about chain-of-thought prompting."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/pdf/2201.11903"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"https://arxiv.org/pdf/2201.11903\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Perfect! I now have the information needed to answer the question comprehensively."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "4 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Chain-of-thought prompting is a prompting technique that enables large language models to solve complex reasoning tasks by decomposing multi-step problems into intermediate steps, mimicking how humans naturally reason through complicated problems.",
+        "Chain-of-thought prompting was proposed in the paper 'Chain-of-Thought Prompting Elicits Reasoning in Large Language Models' published in January 2022 (arXiv:2201.11903) by researchers including Jason Wei and others at Google.",
+        "The technique works by augmenting few-shot exemplars with chains of thought in the prompts, showing the model step-by-step reasoning leading to answers, rather than just input-output pairs.",
+        "Chain-of-thought prompting particularly benefits large language models with sufficient scale (approximately 100 billion parameters or more) and enables them to solve reasoning tasks that standard prompting methods cannot solve."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 10.2,
+      "steps": 2,
+      "input_tokens": 6247,
+      "output_tokens": 462,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1021,
+    "coverage": 1.0
+  },
+  {
+    "id": "q11",
+    "category": "comparison",
+    "difficulty": "medium",
+    "question": "Compare ReAct and plan-and-execute agent designs.",
+    "expected_points": "ReAct plans one step at a time; plan-and-execute writes a full plan first; plan-and-execute uses fewer LLM calls; ReAct adapts better to surprises",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information about ReAct and plan-and-execute agent designs to compare them."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "ReAct reasoning acting agent design"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Implementing ReAct Agentic Pattern From Scratch; Build Reasoning and Acting AI Agents with ReAct; AI Agentic Design Patterns: ReAct Explained | Reasoning + Ac"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "plan-and-execute agent design reasoning"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Plan-and-Execute Agents; ReAct vs Plan-and-Execute: A Practical Comparison of LLM Age; ReAct vs Plan & Execute: Choosing the Right Agent Thinking P"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more detailed information from the most promising sources."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://dev.to/jamesli/react-vs-plan-and-execute-a-practical-comparison-of-llm-agent-patterns-4gh9"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"ReAct vs Plan-and-Execute: A Practical Comparison of LLM Agent Patterns\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://blogs.oracle.com/integration/react-vs-plan-execute-choosing-the-right-agent-thinking-pattern-in-oracle-integration"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"ReAct vs Plan & Execute: Choosing the Right Agent Thinking Pattern in Oracle Int\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.langchain.com/blog/planning-agents"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Plan-and-Execute Agents\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Now I have comprehensive information to compare these two agent designs. Let me compile the findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "5 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "ReAct (Reasoning and Acting) follows a tight iterative loop where the agent thinks, takes one action, observes the result, then decides the next step—adapting its path in real time based on tool responses. In contrast, plan-and-execute separates planning from execution: a planner agent first decomposes the goal into an ordered list of steps, then an executor agent runs those steps sequentially.",
+        "ReAct is more adaptive and suitable for tasks where intermediate results determine next steps, such as real-time interactive scenarios or complex problems requiring dynamic navigation. Plan-and-execute works better for tasks with predictable workflows where the required tools can be identified upfront before execution begins.",
+        "Plan-and-execute agents offer faster execution and cost savings because the large LLM doesn't need to be consulted after each tool invocation; each sub-task can be performed without an additional LLM call or with lighter-weight models. ReAct requires an LLM call at every reasoning step, consuming more tokens and increasing latency.",
+        "In the plan-and-execute pattern, the Planner never calls tools (only thinks) and the Executor never improvises (only acts on prescribed steps), cleanly separating strategy from execution. ReAct maintains reasoning and acting within a single agent loop, making it less deterministic but more flexible to handle unexpected results.",
+        "The choice between patterns hinges on task structure: if you can list the exact tools needed before starting without knowing intermediate results, plan-and-execute is appropriate; if tool selection depends on intermediate results, ReAct is better suited."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 19.5,
+      "steps": 5,
+      "input_tokens": 10239,
+      "output_tokens": 861,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1186,
+    "coverage": 1.0
+  },
+  {
+    "id": "q12",
+    "category": "comparison",
+    "difficulty": "medium",
+    "question": "Compare dense and sparse (BM25) retrieval for RAG.",
+    "expected_points": "BM25 matches exact keywords; dense uses embeddings and captures meaning; dense needs training/embedding model; hybrid often best",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information comparing dense and sparse retrieval methods for RAG (Retrieval-Augmented Generation)."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "dense vs sparse retrieval BM25 RAG comparison"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. From BM25 to Corrective RAG: Benchmarking Retrieval Strategi; Sparse Retrieval and BM25: When Lexical Search Wins | Ailog ; Integrate sparse and dense vectors to enhance knowledge retr"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "BM25 sparse retrieval advantages disadvantages"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Exploring Sparse Vectors vs BM25: Essential Contrasts; 🧠 BM25 vs Sparse vs Hybrid Search in RAG — From Layman to Pr; Dense vs. Sparse Retrieval: AI Search Strategies Explained |"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "dense embedding retrieval performance RAG semantic search"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Enhancing RAG Performance with Advanced Retrieval Methods | ; Dense Retrieval: Semantic Search with Embeddings | Ailog RAG; Issue #76 - Optimize RAG with Hybrid search"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more detailed information from some of these sources:"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.premai.io/blog/hybrid-search-for-rag-bm25-splade-and-vector-search-combined"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Hybrid Search for RAG: BM25, SPLADE, and Vector Search Combined\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://app.ailog.fr/en/blog/guides/sparse-retrieval-bm25"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Sparse Retrieval and BM25: When Lexical Search Wins\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.abhik.ai/concepts/embeddings/sparse-vs-dense"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Sparse vs Dense vs Hybrid Retrieval: BM25, BERT, and Reranking Compared\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "I have gathered comprehensive information. Let me compile the findings:"
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "8 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Sparse retrieval (BM25) excels at exact-term matching and is best for queries requiring precise identifiers (error codes, product SKUs, proper names, technical terms), while dense retrieval captures semantic meaning and paraphrases; recent benchmarks show BM25 outperforms dense embedding models on domain-specific documents with precise terminology (e.g., financial documents).",
+        "Dense retrieval uses learned low-dimensional embeddings (128-1024 dimensions) trained on large corpora to find semantically similar content through cosine similarity; sparse retrieval (BM25) uses high-dimensional vectors (30K-1M dimensions, mostly zeros) based purely on corpus statistics with no training required.",
+        "BM25 is fast and cost-effective, running over inverted indices with minimal computational overhead and no embedding model required; dense retrieval requires embedding models and approximate nearest-neighbor search, increasing infrastructure and latency costs but improving zero-shot generalization to new domains.",
+        "Dense retrieval fails on exact-term lookup and can miss identifiers when paraphrases are not available; sparse retrieval (BM25) fails on synonyms, paraphrases, and semantic variations, missing relevant documents when query wording differs from document content.",
+        "Hybrid retrieval (combining BM25 and dense retrieval) consistently outperforms either method alone on real-world RAG workloads by running both retrievers in parallel and merging results using fusion strategies like Reciprocal Rank Fusion or convex combination, with optional cross-encoder reranking.",
+        "Use sparse retrieval (BM25) for legal documents, code search, e-commerce product lookups, and hard latency constraints (<20ms); use dense retrieval for question answering, semantic similarity, conversational search, and cross-lingual retrieval; use hybrid search for enterprise, academic, and medical RAG systems where quality is paramount.",
+        "BM25 results are highly interpretable (each dimension corresponds to a vocabulary term), while dense embeddings are opaque (individual dimensions carry no clear meaning), making BM25 easier to debug but less flexible for semantic variation.",
+        "SPLADE (Sparse Lexical and Expansion model) is a learned sparse alternative to BM25 that closes most of BM25's weaknesses (handling synonyms and semantic expansion) while maintaining speed and interpretability advantages, often performing better in hybrid search systems."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 29.2,
+      "steps": 6,
+      "input_tokens": 12725,
+      "output_tokens": 1137,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1354,
+    "coverage": 1.0
+  },
+  {
+    "id": "q13",
+    "category": "comparison",
+    "difficulty": "medium",
+    "question": "Compare fine-tuning and RAG for adding domain knowledge to an LLM.",
+    "expected_points": "RAG updates knowledge without retraining and can cite sources; fine-tuning changes style/behaviour; fine-tuning is costly to refresh; RAG depends on retrieval quality",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information comparing fine-tuning and RAG (Retrieval-Augmented Generation) as methods for adding domain knowledge to LLMs."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "fine-tuning vs RAG retrieval augmented generation LLM domain knowledge comparison"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. fine - Search 词典; fine; FINE 释义 | 柯林斯英语词典"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "RAG vs fine-tuning LLM advantages disadvantages tradeoffs"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. RAG vs. fine-tuning; RAG vs Fine-Tuning: Enterprise AI Strategy Guide; RAG vs Fine-Tuning - When to Use Each in Production"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Good start! Let me read a couple of these promising comparison articles in detail to gather more specific information."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.redhat.com/en/topics/ai/rag-vs-fine-tuning"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"RAG vs. fine-tuning\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.matillion.com/blog/rag-vs-fine-tuning-enterprise-ai-strategy-guide"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"RAG vs Fine-Tuning: Enterprise AI Strategy Guide\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://theaiengineer.substack.com/p/rag-vs-fine-tuning"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://theaiengineer.substack.com/p/rag-vs-fine-tuning: Client error '403 Forbidden' for url 'https://theaiengineer.substack.com/p/rag-vs-fine-tuning'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more specific technical details about when to use each approach."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "fine-tuning LLM costs computational requirements domain knowledge"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. The Real Cost of Fine-Tuning LLMs: What You Need to Know | S; Understanding the Performance and Estimating the Cost of LLM; Fine-tuning large language models for domain adaptation: exp"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "RAG vector database retrieval latency real-time updates domain knowledge"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Introduction to Real-Time RAG | Caylent; Real-Time RAG: Streaming Vector Embeddings (With Tutorial); Vector Databases in Modern Applications: Real-Time Search, R"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Excellent! I now have enough information to compile a comprehensive comparison. Let me organize the findings based on what I've gathered:"
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "8 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Fine-tuning updates the LLM's weights and parameters by training it on domain-specific data, while RAG supplements an off-the-shelf model with external data at query time without modifying the model itself.",
+        "RAG is generally more cost-effective than fine-tuning because it leverages existing data through retrieval pipelines rather than requiring extensive data labeling and intensive repeated model training with significant computational resources.",
+        "Fine-tuning enables customization of model behavior and tone (useful for tasks like sentiment analysis or customer service), whereas RAG is better for adding frequently updated factual knowledge and reducing hallucinations through grounding in trusted documents.",
+        "RAG excels at real-time updates and handling large-scale knowledge bases (millions of documents), with vector databases providing sub-second retrieval speeds; fine-tuning requires full retraining to incorporate new knowledge.",
+        "Fine-tuning has lower inference latency since responses come directly from the model, while RAG adds retrieval overhead but can use parameter-efficient methods like LoRA to reduce training costs by orders of magnitude compared to full model fine-tuning.",
+        "RAG is typically more flexible and easier to govern for enterprise use, allowing organizations to control which data sources inform responses through the retrieval layer, while fine-tuned models can drift out of date and require periodic retraining.",
+        "Both approaches can be combined in the same system: use RAG for knowledge-based queries and fine-tuning for behavioral customization, though both rely on strong underlying data integration foundations.",
+        "Fine-tuning requires more specialized skills in ML/training workflows and infrastructure, while RAG systems require building and maintaining retrieval pipelines and vector database infrastructure, with the ability of weak retrievers to quietly cap answer quality."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 29.3,
+      "steps": 7,
+      "input_tokens": 27892,
+      "output_tokens": 1175,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1221,
+    "coverage": 1.0
+  },
+  {
+    "id": "q14",
+    "category": "comparison",
+    "difficulty": "medium",
+    "question": "What are the differences between open-weight and closed LLMs for research use?",
+    "expected_points": "open weights can be run locally and inspected; closed models are often stronger and easier via API; privacy and cost trade-offs; reproducibility",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information about the differences between open-weight and closed LLMs, particularly for research purposes."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "open-weight vs closed LLMs research differences"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "8 results. Open vs. closed: Navigating the critical LLM decision for en; Open Source LLMs vs Open Weight LLMs vs Proprietary LLMs - S; Open vs. Closed: The Battle for the Future of Language Model"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "open source language models closed proprietary research use cases"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "8 results. Open-Source vs Closed-Source AI Models: Which Should You Use; The Open-Source Advantage in Large Language Models (LLMs); Open Source v. Proprietary LLMs: Arms Race for AI Leadership"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more detailed information from some of these sources to understand the specific research implications."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.solarwinds.com/blog/open-source-llms-vs-open-weight-llms-vs-proprietary-llms"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Open Source LLMs vs Open Weight LLMs vs Proprietary LLMs\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/html/2412.12004v3"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"The Open-Source Advantage in Large Language Models (LLMs)\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://hellofuture.orange.com/en/a-typology-of-artificial-intelligence-models"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "1 relevant passages from \"Loading site please wait...\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more specific research-focused information."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "open-weight LLMs research reproducibility transparency advantages"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "7 results. The Open-Source Advantage in Large Language Models (LLMs); Performance Evaluation of Popular Open-Source Large Language; GPT-5 and open-weight large language models: Advances in ..."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "closed proprietary LLMs research limitations performance benchmarking"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "8 results. Benchmarking Open-Source vs Closed LLMs: A Comprehensive Gui; The Open-Source Advantage in Large Language Models (LLMs); A review for navigating the trade-offs: evaluating open-sour"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Now let me read the Nature article on proprietary models and scientific transparency to get research-specific insights."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.nature.com/articles/s44159-026-00593-8"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Proprietary LLMs impede scientific transparency and reproducibility - Nature Rev\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://pmc.ncbi.nlm.nih.gov/articles/PMC12744218"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Performance Evaluation of Popular Open-Source Large Language Models in Healthcar\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "I now have enough information to compile a comprehensive report on the differences between open-weight and closed LLMs for research use. Let me submit the findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "8 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Open-weight LLMs (like Llama) make model weights publicly accessible and allow local downloading and customization, while closed/proprietary LLMs (like GPT-4 and Claude) restrict access to APIs only and keep weights, training data, and methodology private.",
+        "Open-weight models provide superior transparency and reproducibility for research, enabling independent verification, cross-institutional collaboration, and continuous improvement—critical for scientific advancement and identifying bias or errors.",
+        "Proprietary LLMs pose risks to research transparency and reproducibility; their restricted nature makes them difficult to audit and limits researchers' ability to verify results or investigate model behavior for scientific purposes.",
+        "Open-weight LLMs enable researchers to run models locally, fine-tune for specific domains (healthcare, finance, etc.), and integrate into reproducible workflows, while closed models depend on external infrastructure and API rate limits.",
+        "Closed-source models generally exhibit superior performance on public benchmarks due to access to proprietary datasets and optimization methods, though the performance gap with open-weight models is rapidly narrowing.",
+        "Open-weight LLMs cost significantly less to operate than proprietary alternatives (estimated 6x cheaper), making them more accessible for resource-constrained research institutions and promoting equitable scientific advancement.",
+        "True open-source LLMs (with publicly available training data and code, like OLMo) are rarer than open-weight models; many open-weight models still keep training methodologies proprietary, a practice sometimes criticized as 'openwashing.'",
+        "For research requiring auditability, data privacy, and regulatory compliance, open-weight models are preferable; for applications prioritizing state-of-the-art performance with minimal configuration, closed models may be necessary despite their transparency limitations."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 41.9,
+      "steps": 9,
+      "input_tokens": 31459,
+      "output_tokens": 1345,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1208,
+    "coverage": 1.0
+  },
+  {
+    "id": "q15",
+    "category": "comparison",
+    "difficulty": "hard",
+    "question": "Compare single-agent and multi-agent LLM systems for complex tasks.",
+    "expected_points": "multi-agent splits roles and can work in parallel; higher token cost and coordination overhead; single-agent simpler to debug; benefit depends on task",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll help you research the comparison between single-agent and multi-agent LLM systems for complex tasks. Let me search for relevant information across multiple dimensions.\n\n**Plan:** I'll search for comparative analyses of single-agent vs. multi-agent LLM systems, their performance on complex tasks, architectural differences, advantages/disadvantages, and real-world applications."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "single-agent vs multi-agent LLM systems complex tasks comparison"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. AI Agent Architecture: Single vs Multi-Agent Systems; Single vs Multi-Agent System?; Single-agent vs. multi-agent AI: how to choose"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "multi-agent LLM systems performance advantages disadvantages"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Multi-LLM-Agent Systems: Techniques and Business Perspective; Multi-agent LLMs in 2026 [+frameworks]; Benefits of Multi-Agent Systems | Splunk"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "multi-agent systems collaborative problem solving language models"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Collaborative Problem-Solving with LLM: A Multi-agent System; Collaborative Problem-Solving with LLM: A Multi-agent System; Multi-Agent Collaboration Mechanisms: A Survey of LLMs"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Great! I found some promising sources. Let me read the detailed documents to get more specific information about the comparisons."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.dataiku.com/blog/single-agent-vs-multi-agent-systems"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Single-agent ss. multi-agent systems: enterprise AI tradeoffs\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.philschmid.de/single-vs-multi-agents"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Single vs Multi-Agent System?\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://redis.io/blog/single-agent-vs-multi-agent-systems"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Single-agent vs. multi-agent AI: how to choose\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Excellent! I have comprehensive information now. Let me search for a bit more detail on the specific collaborative mechanisms and emerging challenges."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "multi-agent LLM collaboration mechanisms coordination overhead token cost"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "3 results. Token-Efficient Multi-Agent Collaboration via System One-Gui; Capable language models can outgrow the benefits of collabor; Multi-Agent Cost Compounding: Why 3 Agents Cost 10x | Augmen"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "emergent behaviors multi-agent systems LLM failures challenges"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "3 results. **What drives Multi Agent LLM Systems Fail ?**; Why do Multi Agent LLM Systems Fail? The Scaling Myth Expose; Emergent Behavior in Large-Scale Multi-Agent Systems | Zylos"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Now I have comprehensive information to provide a detailed comparison. Let me compile the findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "7 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Single-agent systems are more efficient for simple, sequential, state-dependent tasks with lower resource and token costs, while multi-agent systems excel at complex tasks that can be parallelized. According to a Cornell University study, coordinated multi-agent systems achieved 42.68% success on complex planning tasks versus 2.92% for single-agent GPT-4 setups.",
+        "Single-agent systems maintain unified context with no information loss between steps, enabling simpler debugging and transparent execution paths, but they face sequential bottlenecks and context window limitations. Multi-agent systems enable parallel execution and specialization through delegation, but introduce coordination overhead and context-sharing complexities.",
+        "Token consumption differs significantly between architectures: single-agent systems use standard token patterns for chat interactions, while multi-agent systems can use 15 times more tokens due to inter-agent communication overhead. Research shows lightweight supervisor designs can reduce this overhead by approximately 29.68%, while more complex topologies (hierarchical or mesh) incur substantially higher coordination costs.",
+        "Multi-agent systems offer advantages including reduced hallucinations through agent specialization, improved context handling via distributed work, and automatic self-correction through sequential validation gates. However, they introduce complexity in debugging, non-deterministic behaviors, and emergent properties that are difficult to predict and control in production environments.",
+        "Multi-agent systems are best suited for enterprise scenarios including fraud investigations, claims processing, supply chain coordination, clinical decision support, and drug discovery, where tasks genuinely benefit from specialized agent roles. Single-agent systems remain optimal for straightforward workflows, customer service applications, and tasks requiring continuous memory across all steps.",
+        "Emergent behavior in multi-agent systems is unpredictable and non-repeatable in production, despite impressive demonstrations in prototypes. This unpredictability, combined with cascading failures across agents and complex debugging requirements, creates significant challenges for scaling multi-agent systems beyond research environments.",
+        "Coordination overhead in multi-agent systems scales faster than linearly as more agents are added. Multi-agent architectures show 1.6 to 6.2 times more reasoning turns than single-agent systems under matched computational budgets, creating latency cascades that can serialize parallel execution and eliminate performance advantages without proper architecture design."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 37.8,
+      "steps": 8,
+      "input_tokens": 19370,
+      "output_tokens": 1307,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1317,
+    "coverage": 1.0
+  },
+  {
+    "id": "q16",
+    "category": "comparison",
+    "difficulty": "medium",
+    "question": "Compare vector databases such as FAISS, Chroma and Pinecone.",
+    "expected_points": "FAISS is a library for similarity search; Chroma is open-source and easy local setup; Pinecone is a managed cloud service; trade-offs in scale, cost, hosting",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll help you compare these three vector databases. Let me search for information about their features, performance, and use cases.\n\n**Plan:** I'll search for comparative information about FAISS, Chroma, and Pinecone to identify their key characteristics, strengths, weaknesses, and typical use cases."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "FAISS vs Chroma vs Pinecone vector database comparison"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Vector Databases for RAG: FAISS vs Chroma vs Pinecone; Chroma DB vs. Pinecone vs. FAISS: Vector Database Showdown |; Best Vector Databases 2026: Pinecone, Chroma, Qdrant & More "
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "FAISS vector database features performance"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. FAISS Vector Database: A High-Performance AI Similarity Sear; FAISS vs Chroma? Let's Settle the Vector Database Debate!; Mastering Faiss Vector Database: A Beginner's Handbook"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "Chroma vector database features capabilities"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. What Is Chroma? An Open Source Embedded Database; Introduction to ChromaDB - GeeksforGeeks; Vector Database Chroma Raises $18 Million at a $75 Million V"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "Pinecone vector database managed service features"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. What Is Pinecone Vector Database? Features, Pricing & Compar; A Guide to Pinecone Pricing | Tiger Data; The trusted AI knowledge company | Pinecone"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more detailed information from the most promising comparative sources."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://medium.com/@priyaskulkarni/vector-databases-for-rag-faiss-vs-chroma-vs-pinecone-6797bd98277d"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://medium.com/@priyaskulkarni/vector-databases-for-rag-faiss-vs-chroma-vs-pinecone-6797bd98277d: Client error '403 Forbidden' for url 'https://medium.com/@priyaskulkarni/vector-databases-for-rag-faiss-vs-chroma-vs-pinecone-6797bd98277d'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://risingwave.com/blog/chroma-db-vs-pinecone-vs-faiss-vector-database-showdown"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Chroma DB vs. Pinecone vs. FAISS: Vector Database Showdown\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.datacamp.com/blog/the-top-5-vector-databases"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://www.datacamp.com/blog/the-top-5-vector-databases: Client error '403 Forbidden' for url 'https://www.datacamp.com/blog/the-top-5-vector-databases'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more specific information about pricing, deployment models, and use cases."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "FAISS open source library deployment local server"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "3 results. Introduction to Facebook AI Similarity Search (Faiss) | Pine; GitHub - facebookresearch/faiss: A library for efficient sim; Faiss"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "Chroma database open source embedded metadata filtering"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "3 results. GitHub - api-evangelist/chroma-db: Chroma — independent thir; What Is Chroma? An Open Source Embedded Database; Learn How to Use Chroma DB: A Step-by-Step Guide | DataCamp"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "Pinecone pricing managed cloud serverless vector database"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "3 results. What Is Pinecone Vector Database? Features, Pricing & Compar; Pricing | Pinecone; Pinecone pricing: Features and plans explained + how they bu"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Now I have comprehensive information about all three vector databases. Let me compile the findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "7 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "FAISS (Facebook AI Similarity Search) is an open-source library developed by Meta for efficient similarity search and clustering of dense vectors. It offers high performance through GPU acceleration, handles billions of vectors, supports multiple indexing methods, and has a low memory footprint, making it ideal for large-scale similarity search tasks but requires manual management of indexes and deployment infrastructure.",
+        "Chroma is an open-source, AI-native vector database designed for developers building LLM and RAG applications. It emphasizes ease of use with simple APIs, supports local embedding and persistence, includes metadata filtering and full-text search capabilities, and can run embedded in applications or as a standalone server, making it ideal for prototyping and small-to-mid-scale applications.",
+        "Pinecone is a fully managed, cloud-native vector database delivered as a hosted service with serverless architecture. It handles indexing, replication, scaling, and query optimization automatically, provides ultra-low latency (<100ms acknowledgment), supports horizontal and vertical scaling, and offers both on-demand and dedicated read node pricing options, making it suited for production-scale workloads that require reliability and managed infrastructure.",
+        "Deployment models differ significantly: FAISS runs locally and requires self-management, Chroma can run embedded or as a self-hosted server, while Pinecone operates exclusively as a managed cloud service. This difference impacts operational complexity and infrastructure costs.",
+        "In terms of scalability, FAISS can handle millions to billions of embeddings with consistent performance, Chroma scales well for mid-scale applications with in-memory storage, and Pinecone offers the most seamless auto-scaling through distributed cloud infrastructure with minimal downtime.",
+        "Cost structure varies considerably: FAISS is free but requires internal infrastructure costs, Chroma is open-source and free to self-host, while Pinecone is a paid managed service with costs ranging from free tier to $500+ per month for enterprise plans based on usage and dedicated resources.",
+        "Common migration pattern shows developers starting with FAISS or Chroma for local development and prototyping, then scaling to Pinecone for production workloads requiring long-term persistence, reliability, and shared access across systems."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 37.7,
+      "steps": 10,
+      "input_tokens": 21328,
+      "output_tokens": 1456,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1325,
+    "coverage": 1.0
+  },
+  {
+    "id": "q17",
+    "category": "comparison",
+    "difficulty": "hard",
+    "question": "Compare automatic metrics (BLEU, ROUGE) with LLM-as-a-judge for evaluating generated text.",
+    "expected_points": "BLEU/ROUGE measure n-gram overlap and are cheap; weak correlation with quality for open-ended text; LLM judges correlate better with humans; LLM judges have biases (position, verbosity, self-preference)",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information comparing automatic metrics like BLEU and ROUGE with LLM-as-a-judge evaluation methods."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "BLEU ROUGE vs LLM as judge evaluation text generation comparison"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "8 results. Ch. 19: Evaluating Generative LLMs | Sebastian Raschka, PhD; When Metrics Disagree: Automatic Similarity vs. LLM-as-a-Jud; LLM evaluation: from classic metrics to modern methods"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "LLM-as-a-judge evaluation metrics advantages disadvantages"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "8 results. LLM Evaluation Essentials: From LLM-as-a-Judge to Perplexity; LLM-as-a-Judge: The Ultimate Guide for AI Developers; LLM-as-a-judge: a complete guide to using LLMs for evaluatio"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "automatic metrics BLEU ROUGE limitations human evaluation"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "8 results. BLEU Metric: Automatic Evaluation for Machine Translation - ; LLM Evaluation Metrics » Dezlearn » Learn IT Easy; Re-evaluating Automatic Summarization with BLEU and ..."
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Good initial results. Let me read some key sources to gather more detailed evidence on specific comparisons and research findings."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/html/2603.00314v2"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"When Metrics Disagree: Automatic Similarity vs. LLM-as-a-Judge for Clinical Dial\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.comet.com/site/blog/llm-as-a-judge"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"LLM-as-a-Judge: How to Build Reliable, Scalable Evaluation for LLM Apps and Agen\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://sebastianraschka.com/books/ml-q-and-ai-chapters/ch19"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Ch. 19: Evaluating Generative LLMs\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get one more source on specific limitations and research findings about these comparisons."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/html/2508.13816v1"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"The Illusion of a Perfect Metric: Why Evaluating AI’s Words Is Harder Than It Lo\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.evidentlyai.com/llm-guide/llm-as-a-judge"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"LLM-as-a-judge: a complete guide to using LLMs for evaluations\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Excellent! I now have comprehensive information to provide a detailed comparison. Let me compile the findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "10 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "BLEU and ROUGE are n-gram based lexical metrics that rely on word overlap with reference texts, focusing on surface-level matching rather than semantic meaning. BLEU emphasizes precision (how many generated words appear in references) while ROUGE emphasizes recall (how many reference words appear in generated text), but both struggle with exact matching limitations.",
+        "LLM-as-a-judge uses large language models to evaluate generated text against defined criteria, assessing dimensions like relevance, accuracy, helpfulness, and tone using natural language prompts. This approach evaluates semantic meaning rather than word overlap, making it suitable for evaluating open-ended generation where multiple valid phrasings exist.",
+        "Research demonstrates significant divergence between metrics: a clinical dialogue study found that while BLEU and ROUGE heavily favored a fine-tuned model, GPT-4 as a judge marginally favored the baseline model across semantic dimensions like accuracy, comprehensiveness, and helpfulness, exposing the limitations of surface-level n-gram metrics.",
+        "BLEU and ROUGE show poor and inconsistent correlation with human judgment. Lexical metrics have struggled to demonstrate strong correlation with human judgment since their introduction; ROUGE has faced criticism regarding stability and validity of human judgments, with limitations in nuanced tasks like dialogue generation.",
+        "LLM-as-a-judge provides explainable scores with written rationales that improve debugging, can be applied reference-free to evaluate tasks where ground truth may not exist (like summarization or dialogue), and scales to thousands of evaluations per minute—addressing cost and scalability limitations of manual human evaluation.",
+        "LLM-as-a-judge achieves approximately 80% agreement with human evaluators, which is comparable to human inter-annotator agreement rates. This suggests LLM judges perform at human-level consistency, establishing a realistic benchmark rather than competing with an imagined perfect evaluator.",
+        "BLEU and ROUGE are subject to length bias and cannot capture semantic nuances, synonymy, or paraphrases. They may penalize semantically correct translations or responses that use different phrasing, making them unsuitable for modern generative AI applications but still useful for specific structured tasks.",
+        "LLM-as-a-judge faces challenges similar to traditional metrics: evaluation effectiveness varies by task and dataset, their correlations with human judgment remain inconsistent, and they require validation against domain expert judgments to ensure reliability before scaling to real-world applications.",
+        "Best practice combines multiple evaluation approaches: BLEU and ROUGE remain useful for offline evaluation of structured tasks like machine translation and summarization when references exist, but LLM-as-a-judge is preferred for modern generative AI and open-ended tasks where multiple valid outputs exist.",
+        "BLEU was designed in 2002 for machine translation and ROUGE for document summarization; applying these decades-old metrics to contemporary tasks like creative writing or code generation represents a fundamental mismatch between metric design and use case, highlighting why newer LLM-based evaluation methods are increasingly necessary."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 48.1,
+      "steps": 8,
+      "input_tokens": 26108,
+      "output_tokens": 1548,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      false
+    ],
+    "judge_tokens": 1522,
+    "coverage": 0.75
+  },
+  {
+    "id": "q18",
+    "category": "comparison",
+    "difficulty": "medium",
+    "question": "How do web search APIs for LLM agents (e.g. Tavily, Bing, SerpAPI) differ?",
+    "expected_points": "Tavily built for LLM agents and returns cleaned content; Bing/Google-style APIs return links and snippets; differences in price, freshness and limits",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information about how these web search APIs differ in their features, capabilities, and design for LLM agents."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "Tavily vs Bing vs SerpAPI web search API comparison"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Bing Search API Alternatives: 7 Best Replacements in 2026; Best Web Search APIs: Compare Top Search API Tools; What are the Best Bing Search API Alternatives in 2026"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "Tavily web search API LLM agents features"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Tavily search integration - Docs by LangChain; How to Add Real-Time Web Search to Your LLM Using Tavily; Quickstart: connect your AI agent to the web - Tavily Docs"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "SerpAPI features pricing documentation"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. SerpApi Pricing: 2027 Guide to Plans and Costs — Proxidize B; SerpApi: Plans and Pricing; SERP API Pricing: Plans and Costs (2026 Guide)"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more specific information about Bing Search API and the architectural differences between these services."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "Bing Search API discontinued 2024 2025"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Bing Search APIs Retiring on August 11, 2025 - Microsoft Lif; Bing Search API Alternatives: 7 Best Replacements in 2026; Linkup - Bing Search API Is Retired: Best Alternatives for A"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.olostep.com/blog/best-web-search-apis"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Best Web Search APIs: Compare Top Search API Tools\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.firecrawl.dev/blog/bing-search-api-alternatives"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"What are the Best Bing Search API Alternatives in 2026\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Great! I now have comprehensive information to provide a detailed comparison. Let me compile the findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "7 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Tavily is specifically designed for AI agents and LLMs, returning results formatted for direct LLM consumption (with relevance scores, optional generated answers, and inline raw content), whereas SerpAPI scrapes and returns structured SERP JSON with full SERP elements like ads, knowledge panels, and featured snippets designed more for traditional programmatic search use cases.",
+        "SerpAPI provides multi-engine SERP coverage (Google, Bing, DuckDuckGo, Yahoo, Baidu, and 25+ others) parsed into structured JSON fields, while Tavily operates as a hybrid AI search aggregator over the open web using semantic understanding rather than routing through a single engine's index.",
+        "Bing Search API was officially retired by Microsoft on August 11, 2025, with all existing instances decommissioned; Microsoft directed users to migrate to 'Grounding with Bing Search' within Azure AI Agents rather than maintaining a standalone API.",
+        "Tavily offers AI-optimized features including /search, /extract, /crawl, /map, and /research endpoints with transparent pricing (1,000 free searches/month on Researcher plan), while SerpAPI charges per search with tiered monthly plans ($25/month for Starter at 1,000 searches, with throughput limits of 200-400 per hour).",
+        "Brave Search API differs by maintaining its own independent search index of 30+ billion pages with its own crawler, making it independent from Google or Bing—a distinction that became more significant after Bing API's retirement.",
+        "SerpAPI scrapes and parses search engine results pages to return full SERP structure (organic results, ads, knowledge graphs, local packs), while Tavily abstracts SERP complexity to focus on clean content snippets with relevance rankings suitable for RAG and agent workflows.",
+        "Google filed a DMCA lawsuit against SerpAPI in December 2025 over scraping-related claims, creating ongoing legal risk for scraper-based models, whereas Tavily and Bing (now retired) operated with different legal positioning."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 38.1,
+      "steps": 6,
+      "input_tokens": 12603,
+      "output_tokens": 1060,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1312,
+    "coverage": 1.0
+  },
+  {
+    "id": "q19",
+    "category": "comparison",
+    "difficulty": "hard",
+    "question": "Compare prompt engineering, few-shot learning and instruction tuning.",
+    "expected_points": "prompt engineering changes only input; few-shot puts examples in the prompt; instruction tuning updates weights on instruction data; cost and flexibility trade-offs",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll help you compare these three machine learning techniques. Let me search for information on each and their relationships.\n\n**Plan:** I'll search for information on prompt engineering, few-shot learning, and instruction tuning to understand their definitions, how they work, and how they compare to each other."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "prompt engineering few-shot learning instruction tuning comparison"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Zero-Shot Learning vs. Few-Shot Learning vs. Fine-Tuning: A ; Fine-tuning for Better Few Shot Prompting: An Empirical Comp; Confusion between Instruction Fine Tuning vs Prompt Engineer"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "prompt engineering definition how it works"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. What Is Prompt Engineering? And How to Write Effective Promp; What Is Prompt Engineering?; Prompt Engineering for AI Guide | Google Cloud"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "few-shot learning definition machine learning"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Few-shot learning - Wikipedia; What is few-shot learning? how it works and why it matters; What Is Few-Shot Learning? | IBM"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more specific information on instruction tuning."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "instruction tuning definition how it works"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. What Is Instruction Tuning? | IBM; Instruction Tuning for Large Language Models: A Survey; What is Instruction-Tuning?"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.beam.cloud/blog/prompting-techniques"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Zero Shot Prompting vs. Few-Shot Prompting: Techniques and Real-World Applicatio\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Now let me get more detailed information on the relationship between these techniques."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://labelbox.com/guides/zero-shot-learning-few-shot-learning-fine-tuning"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Zero-Shot Learning vs. Few-Shot Learning vs. Fine-Tuning: A technical walkthroug\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.ibm.com/think/topics/instruction-tuning"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"What Is Instruction Tuning? | IBM\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "I now have sufficient information to provide a comprehensive comparison. Let me compile the findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "6 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Prompt engineering is the practice of crafting and refining text instructions (prompts) to guide an AI model's responses without modifying the model itself, using techniques like zero-shot and few-shot prompting to improve output quality and relevance.",
+        "Few-shot learning is a technique where a model learns to perform a task by providing a small number of labeled examples (typically 1-5) directly within the prompt, allowing the model to infer patterns and adapt its behavior without additional training data.",
+        "Instruction tuning is a fine-tuning technique that retrains a pre-trained language model on a dataset of (instruction, output) pairs using supervised learning, changing the model's internal weights to improve its general ability to follow instructions across diverse tasks.",
+        "Prompt engineering and few-shot learning are inference-time techniques that work with a frozen model and require no parameter updates, while instruction tuning involves modifying model weights through additional training, making it computationally more expensive but potentially more effective for large-scale use.",
+        "Few-shot prompting is a form of prompt engineering that provides in-context examples to the model, whereas instruction tuning generalizes across multiple tasks by training the model on varied instruction-following examples, reducing the need for extensive prompt engineering or exemplars at inference time.",
+        "Instruction tuning combines principles from both the pretrain-finetune paradigm and prompt engineering, effectively bridging the gap between the model's pretraining objective (next-word prediction) and the practical goal of having models follow human instructions accurately."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 34.9,
+      "steps": 7,
+      "input_tokens": 18103,
+      "output_tokens": 1048,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1159,
+    "coverage": 1.0
+  },
+  {
+    "id": "q20",
+    "category": "comparison",
+    "difficulty": "medium",
+    "question": "Compare OpenAI Deep Research, Gemini Deep Research and open-source research agents like GPT Researcher.",
+    "expected_points": "all run multi-step search and write long reports; commercial tools are closed and paid; open-source can be self-hosted and changed; quality and citation accuracy vary",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll research these three AI research tools to provide a comprehensive comparison. Let me search for information on each."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "OpenAI Deep Research features capabilities"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. OpenAI Announces 'Deep Research' Capability for Automated In; OpenAI Announces 'Deep Research' Capability for Automated In; Deep research in ChatGPT | OpenAI Help Center"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "Google Gemini Deep Research features"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Google Gemini can now do more in-depth research; Google Gemini can now do more in-depth research; Gemini Deep Research - AVID Open Access"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "GPT Researcher open-source AI agent"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. GPT Researcher - Autonomous AI Research Agent; Best Open-Source AI Research Agents in 2026; Open‑Source “Deep Research” AI Assistants"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Now let me get more detailed information from some of these sources:"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt: Client error '403 Forbidden' for url 'https://help.openai.com/en/articles/10500283-deep-research-in-chatgpt'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://blog.google/products-and-platforms/products/gemini/google-gemini-deep-research"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Try Deep Research and our new experimental model in Gemini, your AI assistant\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://gptr.dev"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"GPT Researcher - Autonomous AI Research Agent\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more comparative information and pricing details:"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "OpenAI Deep Research vs Gemini Deep Research comparison pricing"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Google Deep Research vs. OpenAI Deep Research: The Future of; $20 vs $200 Google Gemini Deep Research VS OpenAI Deep Resea; We tested two Deep Research tools. One was unusable."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "GPT Researcher vs commercial deep research agents advantages"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. GitHub - assafelovic/gpt-researcher: An autonomous agent tha; Agents Today #13 - Building Your Own Deep Research AI Agent:; Four Open-Source Deep Research Agents, Tested Honestly"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more detailed information from one of these comparison articles:"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.seerinteractive.com/insights/google-deep-research-vs.-openai-deep-research-a-comprehensive-guide-for-seo-digital-marketing-professionals"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Google Deep Research vs. OpenAI Deep Research: The Future of AI Research for Dig\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "I now have sufficient information to provide a comprehensive comparison. Let me compile the findings:"
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "8 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "OpenAI Deep Research, powered by the o3 model, generates PhD-level depth analysis with multimodal capabilities (text, images, and PDFs), producing comprehensive reports resembling graduate-level research with extensive citations. It requires ChatGPT Plus ($20/month for 10 queries) or ChatGPT Pro ($200/month for 120 queries).",
+        "Google Gemini Deep Research uses the Gemini 1.5 model with a 1M token context window and is exclusive to Google One AI Premium ($20/month). It performs text-based research only and produces more concise, surface-level undergraduate-style synthesis with a user-guided planning phase that requires approval before execution.",
+        "OpenAI Deep Research performs iterative web browsing with reasoning-based pivoting and can handle paywalled content, while Gemini Deep Research uses Google's web expertise for directed browsing. OpenAI's approach yields deeper technical analysis; Google's approach produces broader aggregation across more sources.",
+        "GPT Researcher is open-source (MIT licensed) and ranked #1 on Carnegie Mellon University's DeepResearchGym benchmark (May 2025), ahead of both OpenAI and Gemini Deep Research in citation quality, report quality, and coverage metrics.",
+        "GPT Researcher offers unlimited flexibility in LLM selection (OpenAI, Anthropic, Groq, Llama 3, etc.), search engines (Google, Bing, Tavily, DuckDuckGo), and supports hybrid research combining web and local documents. Operating costs depend only on third-party LLM and search API fees with no per-query limits.",
+        "GPT Researcher uses a planner-executor-publisher pipeline with parallel source reading and can generate reports exceeding 2K+ words, breaking LLM token limits. It supports multiple export formats (PDF, Word, Markdown, JSON, CSV) and integrates into multi-agent workflows.",
+        "Commercial deep research tools impose usage restrictions: ChatGPT Deep Research (10-120 queries/month), Perplexity (5 queries/day free). GPT Researcher has no built-in query limits, making it ideal for research-heavy applications and teams avoiding subscription constraints.",
+        "OpenAI Deep Research excels for technical depth and multimodal analysis; Gemini Deep Research suits users embedded in Google's ecosystem seeking affordability; GPT Researcher is optimal for organizations needing customization, unlimited research capacity, and control over underlying models and infrastructure."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 45.2,
+      "steps": 9,
+      "input_tokens": 28678,
+      "output_tokens": 1377,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1399,
+    "coverage": 1.0
+  },
+  {
+    "id": "q21",
+    "category": "limitations",
+    "difficulty": "medium",
+    "question": "What are the main limitations of retrieval-augmented generation?",
+    "expected_points": "quality depends on retrieval; irrelevant or conflicting passages; context length limits; model may still ignore or misread sources",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information about the main limitations of retrieval-augmented generation (RAG)."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "limitations of retrieval-augmented generation RAG"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. The Limitations and Advantages of Retrieval Augmented Genera; Retrieval Augmented Generation (RAG) limitations; Retrieval-augmented generation - Wikipedia"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "retrieval-augmented generation challenges drawbacks"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. A Systematic Literature Review of Retrieval-Augmented ...; Challenges in adopting Retrieval-Augmented Generation soluti; 30 Pros & Cons of Retrieval Augmented Generation (RAG) [2026"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Now let me read some of these sources to get more detailed information about the limitations."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://towardsdatascience.com/the-limitations-and-advantages-of-retrieval-augmented-generation-rag-9ec9b4ae3729"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://towardsdatascience.com/the-limitations-and-advantages-of-retrieval-augmented-generation-rag-9ec9b4ae3729: Client error '403 Forbidden' for url 'https://towardsdatascience.com/the-limitations-and-advantages-of-retrieval-augmented-generation-rag-9ec9b4ae3729'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://medium.com/@simeon.emanuilov/retrieval-augmented-generation-rag-limitations-d0c641d8b627"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://medium.com/@simeon.emanuilov/retrieval-augmented-generation-rag-limitations-d0c641d8b627: Client error '403 Forbidden' for url 'https://medium.com/@simeon.emanuilov/retrieval-augmented-generation-rag-limitations-d0c641d8b627'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.leximancer.com/blog/everything-wrong-with-retrieval-augmented-generation"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Everything Wrong with Retrieval-Augmented Generation — Leximancer Qualitative Re\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for the academic paper on RAG limitations to get more detailed information."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/pdf/2508.06401"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"A Systematic Literature Review of Retrieval-Augmented Generation: Techniques, Me\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "RAG retrieval-augmented generation main problems precision recall"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. What is Retrieval Augmented Generation (RAG)? | Databricks; Retrieval-augmented generation - Wikipedia; What is Retrieval-Augmented Generation (RAG) - GeeksforGeeks"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Based on the information I've gathered from the searches and documents, I now have comprehensive coverage of the main limitations of RAG. Let me compile the findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "9 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Dependency on Retrieval Quality: RAG systems are heavily dependent on the quality of the retrieval component; poor retrieval of relevant documents leads to suboptimal generation and can undermine the model's effectiveness.",
+        "Precision and Recall Issues: Naive RAG systems suffer from low precision (misaligned retrieved chunks) and low recall (failure to retrieve all relevant chunks), and may retrieve outdated information that leads to hallucinations.",
+        "Matching Based on Wrong Criteria: RAG systems often match queries based on broad similarities rather than specific details or contextual nuances, failing to capture the precise information needed.",
+        "Limited Context Integration: The integration of retrieved information with the generative model's pre-trained knowledge is often shallow, creating a contextual disconnect that prevents deep reasoning.",
+        "Scalability Challenges: RAG systems show degraded performance scaling beyond 100 million documents, with retrieval latency increasing 5-10x according to benchmark studies, making them unsuitable for enterprise-scale deployment.",
+        "Computational Overhead and Latency: The retrieval step introduces computational overhead and search time that can dramatically increase response times, making real-time applications challenging and adding to inference wait times.",
+        "Lack of Uncertainty Recognition: Without specific training, LLMs in RAG systems may generate answers even when they lack sufficient information to provide reliable responses, failing to properly indicate uncertainty.",
+        "Domain-Specific Limitations: RAG effectiveness varies significantly across domains; in sparse data domains or fast-changing contexts like finance and current events, retrieval systems lag behind and provide outdated information.",
+        "Bias and Fairness Concerns: RAG systems can be susceptible to bias from biased source documents, and require well-organized, high-quality data to function effectively."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 28.5,
+      "steps": 7,
+      "input_tokens": 14604,
+      "output_tokens": 1143,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      false,
+      true
+    ],
+    "judge_tokens": 1206,
+    "coverage": 0.75
+  },
+  {
+    "id": "q22",
+    "category": "limitations",
+    "difficulty": "medium",
+    "question": "Why do LLMs hallucinate citations and how can this be reduced?",
+    "expected_points": "model generates plausible but non-existent references; reduce via retrieval grounding; verify citations against sources; quote passages",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll help you research this important question about LLM hallucinations and citations. Let me plan my approach:\n\n**Plan:** I'll search for information on (1) why LLMs hallucinate or generate false citations, (2) the mechanisms behind this behavior, and (3) known methods to reduce or prevent citation hallucinations."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "why do LLMs hallucinate citations mechanisms"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Citation Hallucinations; Why Do Large Language Models Hallucinate? | AWS Builder Cent; Why LLMs Hallucinate (And How to Actually Reduce It)"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "reducing LLM citation hallucinations methods techniques"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Kong AI Gateway Launches Next-Gen Capabilities to Enhance AI; LLM SEO Optimization — Get Cited by ChatGPT, Claude & Gemini; Galileo Releases the First LLM Evaluation, Experimentation a"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "LLM false citations generation problem solutions"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. What Is an LLM? Large Language Models Explained (2026) | The; Large language model - Wikipedia; Large Language Models (LLMs) with Google AI | Google Cloud"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Good initial results. Let me get more detailed information from some of these key sources."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://openai.com/index/why-language-models-hallucinate"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://openai.com/index/why-language-models-hallucinate: Client error '403 Forbidden' for url 'https://openai.com/index/why-language-models-hallucinate'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://builder.aws.com/content/2x37YnzachpTBpUDEkM0GX38uD1/why-do-large-language-models-hallucinate"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Why Do Large Language Models Hallucinate? | AWS Builder Center\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.emergentmind.com/topics/citation-hallucinations"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Citation Hallucinations\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Excellent! Let me get more specific information about reduction techniques."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "retrieval augmented generation RAG reduce LLM hallucinations citations"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. You.com | AI Hallucination Prevention and How RAG Helps; MEGA-RAG: a retrieval-augmented generation framework with mu; Hallucination Mitigation for Retrieval-Augmented Large Langu"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/abs/2605.07723"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"LLM hallucinations in the wild: Large-scale evidence from non-existent citations\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Perfect! I now have comprehensive information covering the causes of citation hallucinations and methods to reduce them. Let me compile my findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "7 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "LLMs hallucinate citations because they generate linguistically plausible text sequences rather than retrieving verified facts from a database. Models are trained to produce high-probability token combinations matching bibliographic patterns without checking whether the sources actually exist.",
+        "Citation hallucinations arise from three main factors: data quality issues (training on inaccurate or biased data), model training methodologies (rewarding confident guesses over admitting uncertainty), and architectural limitations (limited working memory and attention mechanisms that struggle with long sequences).",
+        "Knowledge gaps and long-tail knowledge contribute significantly to citation hallucinations. Facts that are rare or underrepresented in training data (appearing <10% of the time) result in 3× higher hallucination rates compared to common entities.",
+        "Retrieval-Augmented Generation (RAG) is a primary technique to reduce citation hallucinations by retrieving relevant verified documents before generating responses. Enhanced RAG frameworks like MEGA-RAG have achieved over 40% reductions in hallucination rates compared to standard approaches.",
+        "Other mitigation strategies include: consistency-check frameworks to verify bibliographic claims, embedding structured verification steps into training processes, fine-tuning models with verified domain-specific data, and post-hoc verification systems.",
+        "Web search integration and citation verification systems create audit trails for fact-checking, though these approaches do not completely eliminate hallucinations. RAG systems remain limited by the quality and accuracy of their underlying knowledge bases.",
+        "Monitoring and evaluation mechanisms are essential: production systems need systematic testing against known correct answers, tracking hallucination rates over time, and human-in-the-loop review for high-stakes applications where model confidence falls below acceptable thresholds."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 31.3,
+      "steps": 8,
+      "input_tokens": 19209,
+      "output_tokens": 1231,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      false
+    ],
+    "judge_tokens": 1194,
+    "coverage": 0.75
+  },
+  {
+    "id": "q23",
+    "category": "limitations",
+    "difficulty": "hard",
+    "question": "How can research agents defend against prompt injection from web pages?",
+    "expected_points": "web text may contain hidden instructions; treat tool output as untrusted data; restrict tools and permissions; no full solution exists",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll research how research agents can defend against prompt injection attacks from web pages. Let me search for relevant information on this topic.\n\n**Plan:** I'll search for information on prompt injection attacks, defenses specifically for research agents, and best practices for handling untrusted web content."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "prompt injection defense research agents web pages"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. AI Browser Agents: Unveiling the Alarming Cybersecurity Thre; Mitigating prompt injections in browser use \\ Anthropic; Fooling AI Agents: Web-Based Indirect Prompt Injection Obser"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "prompt injection attacks prevention strategies"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Protect Against Prompt Injection | IBM; Prompt Injection: Impact, Attack Anatomy & Prevention; Prompt Injection Attacks: Prevention Approach"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "handling untrusted content from web sources AI agents"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Nvidia and ServiceNow team up on OpenClaw-style AI agent; Nimble raises $47M to give AI agents access to real-time web; Firecrawl Announces $14.5 Million in Series A Funding to Put"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Good start. Let me get more specific information from the Anthropic and Palo Alto Networks sources, which appear to have detailed guidance on defenses."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.anthropic.com/research/prompt-injection-defenses"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Mitigating prompt injections in browser use\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://unit42.paloaltonetworks.com/ai-agent-prompt-injection"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Fooling AI Agents: Web-Based Indirect Prompt Injection Observed in the Wild\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more specific technical defenses and best practices that research agents can implement."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "research agents XML tags sanitization prompt injection defense"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. LLM Prompt Injection Prevention - OWASP Cheat Sheet Series; Research shows AI agents are highly vulnerable to hijacking ; Multimodal Prompt Injection Attacks: Risks and Defenses for "
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "input validation output monitoring AI agents untrusted content defense"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. AI Agent Security - OWASP Cheat Sheet Series; Safeguarding AI Agents: A2A Protocol Security Guide; Securing AI Agents in Production: Threats, Guardrails and To"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Perfect! I now have comprehensive information. Let me read the OWASP cheat sheets for more specific technical details."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://cheatsheetseries.owasp.org/cheatsheets/LLM_Prompt_Injection_Prevention_Cheat_Sheet.html"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"LLM Prompt Injection Prevention Cheat Sheet¶\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://openai.com/index/designing-agents-to-resist-prompt-injection"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://openai.com/index/designing-agents-to-resist-prompt-injection: Client error '403 Forbidden' for url 'https://openai.com/index/designing-agents-to-resist-prompt-injection'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "I have enough evidence now to provide a comprehensive report. Let me compile the findings based on the research gathered."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "7 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Research agents should treat all web content as untrusted and implement strict input validation and sanitization before including external content in agent context. This includes removing common injection patterns, filtering suspicious markup, validating encoding, and using delimiters to create clear boundaries between trusted instructions and external data.",
+        "Defense-in-depth is critical: no single defense adequately addresses prompt injection. Effective protection requires layered mechanisms combining input validation, content filtering, tool access controls, output monitoring, and behavioral analysis across multiple security layers.",
+        "Agents should use input screening with machine learning-based classifiers (such as guardrail models) to detect indirect prompt injection in untrusted content before processing, as pattern-based regex filtering alone is unreliable for catching sophisticated attacks hidden in web pages.",
+        "Principle of least privilege should be enforced: grant agent tools minimal necessary permissions and data access, validate tool calls against user permissions, implement tool-specific parameter validation, and require approval for high-risk operations before execution.",
+        "Security thought reinforcement techniques can help by adding targeted security instructions surrounding untrusted content to remind the LLM to stay focused on user-directed tasks and ignore adversarial instructions embedded in web pages or other external sources.",
+        "Agents should validate and monitor tool outputs and reasoning patterns for anomalies, use separate LLM calls to validate or summarize untrusted content, and treat inter-agent traffic and all external data sources (documents, API responses, emails, web pages) as potentially malicious.",
+        "Newer hardened LLM models incorporate techniques like instruction hierarchy and adversarial training to reduce vulnerability to prompt injection attacks, and ongoing improvements in model robustness complement technical defenses in agent systems."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 34.9,
+      "steps": 9,
+      "input_tokens": 27475,
+      "output_tokens": 1333,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1187,
+    "coverage": 1.0
+  },
+  {
+    "id": "q24",
+    "category": "limitations",
+    "difficulty": "medium",
+    "question": "What are the risks of using LLM agents for academic literature reviews?",
+    "expected_points": "missed or hallucinated papers; bias toward easily accessible sources; shallow synthesis; need for human verification",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll search for information about the risks and challenges of using LLM agents for academic literature reviews."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "risks LLM agents academic literature reviews"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "8 results. Risk - Wikipedia; Risks | Open Access Journal | MDPI; risks"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "limitations large language models literature review research"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "8 results. A systematic review of the limitations of large language mod; Large Language Models: A Structured Taxonomy and Review of C; Examining the impact of large language models on design: Fun"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "hallucination bias errors LLM systematic reviews"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "8 results. The Human Factor in Detecting Errors of Large Language Model; Hallucination Rates and Reference Accuracy of ChatGPT and Ba; When AI Gets It Wrong: Addressing AI Hallucinations and Bias"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Good start. Let me read some of the most relevant documents to get more detailed information about the specific risks."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11153973"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Hallucination Rates and Reference Accuracy of ChatGPT and Bard for Systematic Re\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/html/2403.09743v1"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"The Human Factor in Detecting Errors of Large Language Models: A Systematic Lite\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://academic.oup.com/jamia/article/32/6/1071/8126534"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://academic.oup.com/jamia/article/32/6/1071/8126534: Client error '403 Forbidden' for url 'https://academic.oup.com/jamia/article/32/6/1071/8126534'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for additional information about other risks beyond hallucinations."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "LLM language bias limited coverage literature review non-English papers"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Are Non-English Papers Reviewed Fairly? Language-of-Study Bi; Bias in Large Language Models: Origin, Evaluation, and Mitig; How language bias persists in scientific publishing despite "
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.mdpi.com/2076-3417/15/14/8103"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: no readable text found (scanned PDF or JavaScript-only page?)"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more information about knowledge cutoffs and other specific risks."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "\"LLM\" \"literature review\" knowledge cutoff outdated training data risks"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. The future of reviews; Knowledge Cutoff Explained: Why Your AI Doesn't Know About C; Medium"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Based on my research, I now have comprehensive information about the risks of using LLM agents for academic literature reviews. Let me compile the findings."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "8 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "High hallucination rates: Studies show that LLMs generate false or non-existent references at concerning rates—ChatGPT-3.5 at 39.6%, GPT-4 at 28.6%, and Bard at 91.4% in systematic review tasks—making their output unreliable for literature identification.",
+        "Poor precision and recall: LLMs have very low precision (9.4-13.4% for GPT models) and recall (11.9-13.7%) when retrieving papers for systematic reviews compared to gold-standard human-conducted reviews, meaning they miss most relevant papers and return many irrelevant ones.",
+        "Incomplete coverage due to language bias: LLMs are primarily trained on English-language texts and have limited ability to understand content in other languages, excluding significant portions of scientific knowledge published in non-English languages.",
+        "Knowledge cutoff limitations: LLMs cannot access research published after their training data cutoff dates, potentially leading to outdated or incomplete literature reviews that miss the most recent findings and developments in a field.",
+        "Systematic bias and demographic errors: LLMs exhibit geographical and open-access biases in retrieved papers, show different quality performance based on demographic cues, and struggle to correctly identify methodological criteria such as randomization status and participant characteristics.",
+        "Two types of errors—hallucinations and omissions: Beyond generating false information, LLMs also omit relevant facts from source materials, and these errors are difficult for humans to detect without expertise, creating risks of both false positives and false negatives.",
+        "Loss of human oversight: Overreliance on LLMs for literature reviews risks diminishing critical human judgment and expertise, which are essential for evaluating paper quality, methodological rigor, and contextual relevance in academic research.",
+        "Liability and authorship concerns: Questions remain unresolved about accountability, copyright, and authorship when using AI-generated content in academic reviews, raising ethical and legal issues for researchers and institutions."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 34.0,
+      "steps": 9,
+      "input_tokens": 32939,
+      "output_tokens": 1372,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      false,
+      true
+    ],
+    "judge_tokens": 1254,
+    "coverage": 0.75
+  },
+  {
+    "id": "q25",
+    "category": "limitations",
+    "difficulty": "hard",
+    "question": "Do larger language models always perform better? What is known about scaling limits?",
+    "expected_points": "scaling laws show predictable loss decrease; diminishing returns; data limits; smaller models with better data/training can compete",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll research whether larger language models always perform better and what is known about scaling limits. Let me search for information on this topic.\n\n**Plan:** I'll search for information about language model scaling laws, performance plateaus, and limitations of model size to understand both the benefits and constraints of larger models."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "larger language models always perform better scaling laws"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Scaling Laws for LLMs: From GPT-3 to o3; Do Larger Language Models Imply Better Reasoning? A Pretrain; Revisiting Scaling Laws for Language Models: The Role of Dat"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "language model scaling limits performance plateau"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Why AI Scaling Hits a Wall: The Hidden Ceiling Behind Large ; Is there a wall? An Evidence-Based Analysis of Diminishing R; Are Scaling Laws Really Plateauing? | Soufiane Hayou"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "scaling laws transformer language models compute data"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Neural scaling law - Wikipedia; Scaling laws; Scaling Laws, Carefully | Lil'Log"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Good start. Let me read some of these sources for more detailed information about scaling limits and when larger models don't necessarily perform better."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/html/2504.03635v1"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Do Larger Language Models Imply Better Reasoning? A Pretraining Scaling Law for \""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://c3.unu.edu/blog/why-ai-scaling-hits-a-wall"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Why AI Scaling Hits a Wall: The Hidden Ceiling Behind Large Language Models\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://medium.com/@adnanmasood/is-there-a-wall-34d02dfd85f3"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://medium.com/@adnanmasood/is-there-a-wall-34d02dfd85f3: Client error '403 Forbidden' for url 'https://medium.com/@adnanmasood/is-there-a-wall-34d02dfd85f3'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more specific information about performance plateaus and compute efficiency trade-offs."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "language model scaling limits diminishing returns performance plateau empirical evidence"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Is there a wall? An Evidence-Based Analysis of Diminishing R; Scaling language model size yields diminishing returns for s; AI Scaling Laws Are Breaking Down: What It Means for AI Buil"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "\"inverse scaling\" \"broken scaling law\" language models larger worse performance"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Data for \"Inverse Scaling: When Bigger Isn't Better\" : Facul; Inverse Scaling: When Bigger Isn't Better | alphaXiv; Announcing the Inverse Scaling Prize ($250k Prize Pool) — Le"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Excellent. I now have comprehensive information. Let me compile the findings based on the evidence gathered."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "8 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Larger language models do not always perform better: research has documented inverse scaling on certain tasks, where model performance actually worsens with increased scale due to flaws in training objectives or data, as demonstrated by the Inverse Scaling Prize competition findings on 11 datasets.",
+        "Scaling laws follow predictable power-law relationships for language model performance across model size, training data, and compute budgets; however, these laws are conditional on data quality and training strategies, and performance improvements show diminishing returns at scale.",
+        "The Chinchilla scaling law (DeepMind, 2022) established that model size and training tokens should be scaled equally for compute-optimal training (roughly 20 tokens per parameter), contradicting earlier Kaplan laws that favored larger models while keeping data constant.",
+        "Empirical evidence shows frontier language models from OpenAI, Anthropic, Google, and Meta are hitting diminishing returns, with smaller performance improvements despite massive increases in training budget, suggesting an approaching 'scaling wall' or plateau.",
+        "Theoretical work from MIT identifies hard mathematical constraints on scaling across three dimensions: model width (limited embedding space for high-dimensional concepts), depth, and training time, creating deep geometric, statistical, and optimization barriers that capital alone cannot bypass.",
+        "On certain reasoning tasks, language models display U-shaped scaling curves with an optimal model size beyond which performance degrades due to overparameterization and overfitting, meaning larger models may hurt reasoning capability during pretraining.",
+        "Data scarcity for high-quality training text and the increasing computational cost of training frontier models represent economic and practical constraints limiting the feasibility of continued large-scale training, even where theoretical scaling laws might permit improvements.",
+        "Some inverse scaling tasks show U-shaped performance curves where larger models initially perform worse but then improve at extreme scales, though this pattern does not hold uniformly across all tasks and may depend on model architecture and training procedures."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 30.5,
+      "steps": 8,
+      "input_tokens": 18917,
+      "output_tokens": 1236,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1237,
+    "coverage": 1.0
+  },
+  {
+    "id": "q26",
+    "category": "limitations",
+    "difficulty": "medium",
+    "question": "What are the environmental costs of training and running large language models?",
+    "expected_points": "high electricity use for training; inference at scale adds ongoing cost; water use for cooling; estimates vary and are disputed",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll research the environmental costs of training and running large language models. Let me start by searching for information on this topic.\n\n**Plan:** I'll search for evidence on the energy consumption, carbon emissions, and environmental impact of training and operating large language models (LLMs), then compile the key findings."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "environmental costs training running large language models energy carbon emissions"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Holistically Evaluating the Environmental Impact of Creating; Reconciling the contrasting narratives on the environmental ; Environmental Impact of Large Language Models: Green or Poll"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "LLM training energy consumption carbon footprint environmental impact"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Reconciling the contrasting narratives on the environmental ; AI's carbon footprint appears likely to be alarming | PIIE; Environmental Impact of Large Language Models | Cutter Conso"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more detailed information from some of these sources:"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/html/2503.05804v1"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Holistically Evaluating the Environmental Impact of Creating Language Models\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.nature.com/articles/s41598-024-76682-6"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Reconciling the contrasting narratives on the environmental impact of large lang\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://hdsr.mitpress.mit.edu/pub/fscsqwx4"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://hdsr.mitpress.mit.edu/pub/fscsqwx4: Client error '403 Forbidden' for url 'https://hdsr.mitpress.mit.edu/pub/fscsqwx4'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more specific information on water consumption and other environmental impacts:"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "large language models water consumption environmental impact cooling"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. The Environmental Impacts of Large Language Models; Holistically Evaluating the Environmental Impact of Creating; Assessing the environmental impact of large language models "
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Now I have comprehensive information to compile findings. Let me organize the key environmental costs:"
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "7 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Training large language models requires massive computational energy; for example, training GPT-3 consumed approximately 1,287,000 kilowatt-hours of electricity and generated roughly 552 metric tons of CO2 emissions.",
+        "LLM training and operation are energy-intensive and contribute to growing datacenter energy demand, with projections estimating that datacenters could consume over 11.7% of total U.S. energy demand by 2030.",
+        "Water consumption is a significant but often overlooked environmental cost of LLMs; data centers require millions of gallons of water daily for cooling systems, which can strain local water resources and vulnerable ecosystems, particularly in drought-affected regions.",
+        "The environmental impact of LLMs extends beyond the final training run and includes upstream embodied carbon from hardware manufacturing and emissions from model development, hyperparameter tuning, and experimental runs that typically precede the final model.",
+        "While training is energy-intensive, ongoing inference (model usage) also consumes considerable energy; modern LLMs like Llama-3-70B generate lower per-page carbon emissions than typical human labor, but cumulative usage across billions of requests adds to total environmental impact.",
+        "The environmental impact of LLMs varies significantly with cooling system type, power generation methods (fossil fuels vs. renewable energy), model size, and hardware efficiency, meaning the same model can have substantially different environmental costs depending on where and how it is trained.",
+        "LLM development and training create rapid power fluctuations in data centers that pose challenges for power grid management and stability, with potential secondary environmental effects from grid operations."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 29.7,
+      "steps": 6,
+      "input_tokens": 15169,
+      "output_tokens": 1025,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1170,
+    "coverage": 1.0
+  },
+  {
+    "id": "q27",
+    "category": "limitations",
+    "difficulty": "hard",
+    "question": "Is LLM-as-a-judge evaluation reliable?",
+    "expected_points": "agrees with humans in many settings; position and verbosity bias; self-preference bias; less reliable for expert domains",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll research whether LLM-as-a-judge evaluation is reliable. Let me search for evidence on this topic.\n\n**Plan:** I'll search for recent research on the reliability and validity of using Large Language Models as judges for evaluating text, looking for both positive findings and documented limitations."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "LLM-as-a-judge evaluation reliability limitations"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Reliability without Validity: A Systematic, Large-Scale Eval; LLM-as-Judge: Why It's Hard to Get Right | DataFramer; Exploring LLM-as-a-Judge - Weights & Biases"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "LLM judge evaluation research agreement validity"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Reliability without Validity: A Systematic, Large-Scale Eval; Assessing inter-rater agreement among large language model j; LLM-as-a-Judge Simply Explained: The Complete Guide to Run L"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me read the detailed paper on reliability to get more specific evidence:"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/html/2606.19544v1"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Reliability without Validity: A Systematic, Large-Scale Evaluation of LLM-as-a-J\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.sciencedirect.com/science/article/pii/S0040162526003719?dgcid=rss_sd_all"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://www.sciencedirect.com/science/article/pii/S0040162526003719?dgcid=rss_sd_all: Client error '403 Forbidden' for url 'https://www.sciencedirect.com/science/article/pii/S0040162526003719?dgcid=rss_sd_all'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more specific findings on the consistency-bias paradox and other key issues:"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "\"LLM-as-a-judge\" position bias verbosity bias consistency findings 2024 2025"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. A Systematic Study of Position Bias in LLM-as-a-Judge; Judging the Judges: A Systematic Study of Position Bias in L; LLM-as-a-Judge: Why Frontier Models Fail 50%+ Bias Tests | A"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Now I have sufficient evidence to provide a comprehensive answer. Let me compile the findings:"
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "6 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "LLM-as-a-judge evaluation has significant reliability limitations despite widespread adoption. A large-scale systematic study of 21 judges from nine providers found that raw agreement rates overstate actual discriminative ability by 33-41 percentage points when correcting for chance, a phenomenon termed 'kappa deflation.'",
+        "LLM judges exhibit multiple documented biases that undermine reliability: position bias (preferring certain responses regardless of quality), verbosity bias (favoring longer outputs by ~17 percentage points above human preference), and self-preference bias (rating their own outputs higher). These biases persist even in pairwise comparative settings.",
+        "Judge rankings are non-transferable across different benchmarks, with models shifting by as many as 14 positions, suggesting that performance cannot be reliably generalized to new evaluation tasks or domains.",
+        "A consistency-bias paradox has been identified: judges can show high test-retest reliability while simultaneously exhibiting severe position bias, meaning consistency does not guarantee accurate evaluation. Additionally, frontier models exceeded 50% error rates on advanced bias tests according to recent research.",
+        "LLM judges perform poorly in specialized domains requiring subject-matter expertise (medicine, law, finance) where they may overlook subtle but critical mistakes, and their evaluation is highly sensitive to prompt wording and structure.",
+        "While some research shows LLM judges can achieve ~85% agreement with human annotators under optimal conditions (with techniques like chain-of-thought prompting and few-shot examples), experts recommend that LLM judges should not be trusted without domain-specific validation and should be combined with human review rather than used as standalone evaluators."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 24.6,
+      "steps": 5,
+      "input_tokens": 13986,
+      "output_tokens": 974,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1175,
+    "coverage": 1.0
+  },
+  {
+    "id": "q28",
+    "category": "limitations",
+    "difficulty": "medium",
+    "question": "What copyright issues arise from training LLMs on web data?",
+    "expected_points": "training on copyrighted text without permission; lawsuits by authors and publishers (e.g. NYT v. OpenAI); fair use debate; legal status still unsettled",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll research the copyright issues that arise from training Large Language Models (LLMs) on web data. Let me search for information on legal challenges, lawsuits, and regulatory perspectives."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "copyright issues training LLMs web data lawsuits"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Concerned about AI Training Data and Copyrighted Works? New ; Copyright And The Challenge of Large Language Models (Part 1; Legal Risk Evaluation for Training LLMs on Copyrighted Text"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "fair use copyright LLM training data legal"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. LawBurst: Court Rules Fair Use Permits Training LLMs on Purc; Training Generative AI Models on Copyrighted Works Is Fair U; Piracy vs. Fair Use: How AI Training Intersects With Copyrig"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "copyright infringement AI language models training data authors"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. AI and Authors' Rights - Copyright - LibGuides at Utah State; Artificial intelligence and copyright - Wikipedia; Concerned about AI Training Data and Copyrighted Works? New "
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me get more detailed information on specific cases and issues."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://masslawblog.com/copyright/copyright-and-the-mechanics-of-large-language-models"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://masslawblog.com/copyright/copyright-and-the-mechanics-of-large-language-models: Client error '403 Forbidden' for url 'https://masslawblog.com/copyright/copyright-and-the-mechanics-of-large-language-models'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.skadden.com/insights/publications/2025/07/fair-use-and-ai-training"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Fair Use and AI Training: Two Recent Decisions Highlight the Complexity of This \""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more information on specific types of copyright issues."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "New York Times copyright lawsuit OpenAI ChatGPT training data"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. New York Times says OpenAI hid evidence in ChatGPT copyright; New York Times Sues OpenAI and Microsoft Over Use of Copyrig; The New York Times v. Microsoft and OpenAI - Wikipedia"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "copyright issues LLMs regurgitation memorization training data"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Retracing the Past: LLMs Emit Training Data When They Get Lo; Threat Models for Memorization: Privacy, Copyright, and Ever; Demystifying Verbatim Memorization in Large Language Models "
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Based on my research, I now have sufficient information to compile findings on the copyright issues arising from training LLMs on web data. Let me submit the report."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "7 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Unauthorized use of copyrighted material in training data: Copyright owners claim that LLMs are trained on copyrighted works from the web without permission or compensation, raising questions about whether this constitutes copyright infringement or falls under fair use.",
+        "Fair use doctrine remains contested: Courts in the Northern District of California have reached conflicting conclusions, with one judge (Bartz v. Anthropic) ruling that training on lawfully acquired copyrighted books is fair use due to transformative nature, while another judge (Kadrey) suggested that in most cases, unauthorized training on copyrighted works is likely infringing rather than fair use.",
+        "Source of training data matters: Courts have found that using lawfully purchased or digitized books is more likely to constitute fair use than using pirated or illegally obtained materials, creating liability concerns for companies that knowingly use unauthorized sources.",
+        "Verbatim memorization and regurgitation: LLMs can output text that is verbatim or near-verbatim reproduction of training materials, raising copyright concerns beyond just the training phase—the models may violate copyrights when generating outputs that reproduce substantial portions of original works.",
+        "Major litigation cases include the New York Times lawsuit against OpenAI and Microsoft (filed December 2023), alleging that millions of copyrighted articles were scraped from the web without authorization to train ChatGPT, and the Times cited 100 specific examples of the model reproducing their content.",
+        "Market harm and competitive substitution: Plaintiffs argue that LLMs trained on copyrighted news and creative content compete directly with original works as sources of information, potentially harming the market value and sales of books, articles, and other copyrighted materials.",
+        "Absence of evidence of infringement in some cases: Courts have noted that many training data cases present weak evidence of actual infringing outputs or market harm, with some decisions emphasizing that broader conclusions about fair use are difficult to draw without stronger factual records showing specific harm."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 31.5,
+      "steps": 7,
+      "input_tokens": 17897,
+      "output_tokens": 1145,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      true,
+      true
+    ],
+    "judge_tokens": 1267,
+    "coverage": 1.0
+  },
+  {
+    "id": "q29",
+    "category": "limitations",
+    "difficulty": "hard",
+    "question": "How well do current LLM agents perform on long, multi-step tasks?",
+    "expected_points": "success drops as task length grows; errors compound across steps; benchmarks like GAIA/WebArena show gap to humans; improving quickly",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll help you research how well current LLM agents perform on long, multi-step tasks. Let me search for information about this topic.\n\n**Plan:** I'll search for information about LLM agent performance on long and multi-step tasks, including benchmark results, evaluation studies, and any limitations or challenges they face."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "LLM agents performance long multi-step tasks benchmark"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. TheAgentCompany: Benchmarking LLM Agents on Consequential Re; Evaluation and Benchmarking of LLM Agents: A Survey; TheAgentCompany: Benchmarking LLM Agents on Consequential Re"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "large language model agents multi-step reasoning evaluation 2024"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. How well do large language models (LLMs) actually handle mul; Multi-Step Reasoning with Large Language Models, a Survey; GitHub - weitianxin/Awesome-Agentic-Reasoning: A curated lis"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "LLM agent limitations long-horizon tasks failure modes"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Introduction to Large Language Model (LLM) - GeeksforGeeks; What Is an LLM? Large Language Models Explained (2026) | The; Best Open-Source LLM Models in 2026: Coding, Local, Agentic "
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me read some of the most relevant papers to get more specific performance data and findings."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/html/2507.21504v1"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"Evaluation and Benchmarking of LLM Agents: A Survey\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://alphaxiv.org/abs/2412.14161v1"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"TheAgentCompany: Benchmarking LLM Agents on Consequential Real World Tasks\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://medium.com/about-ai/how-well-do-large-language-models-llms-actually-handle-multi-step-reasoning-83ce37f7fc32"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://medium.com/about-ai/how-well-do-large-language-models-llms-actually-handle-multi-step-reasoning-83ce37f7fc32: Client error '403 Forbidden' for url 'https://medium.com/about-ai/how-well-do-large-language-models-llms-actually-handle-multi-step-reasoning-83ce37f7fc32'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more specific performance data and benchmarks."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "ProcBench multi-step reasoning LLM performance results"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. ProcBench: Benchmark for Multi-Step Reasoning and Following ; How well do large language models (LLMs) actually handle mul; ProcBench: Benchmark for Multi-Step Reasoning and Following "
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "\"error accumulation\" \"long horizon\" LLM agents reasoning"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. The Long-Horizon Task Mirage? Diagnosing Where and Why Agent; Why Reasoning Fails to Plan: The Fundamental Gap Between Ste; Plan and Act: Enabling Agents to Solve Long Horizon Tasks"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me read the most relevant papers to get more details on the specific findings."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/html/2410.03117v1"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"ProcBench: Benchmark for Multi-Step Reasoning and Following Procedure\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://arxiv.org/html/2604.11978v1"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"The Long-Horizon Task Mirage? Diagnosing Where and Why Agentic Systems Break\""
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "I now have comprehensive information to provide findings. Let me compile the research report based on the evidence gathered."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "6 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Current LLM agents show significantly degraded performance as task complexity and length increase. State-of-the-art models like o1-preview and o1-mini perform well on shorter multi-step tasks but face substantial difficulties as the number of steps grows, indicating a critical limitation in procedural reasoning.",
+        "According to TheAgentCompany benchmark evaluating LLM agents on real-world professional tasks, success rates remain below 25% even for the best models, with varying performance across job categories. Software engineering tasks had higher success rates than administrative and finance tasks, and tasks requiring social interaction and complex web navigation proved particularly challenging.",
+        "Error accumulation is a major failure mode in long-horizon tasks. Small mistakes or incorrect assumptions introduced early in a task trajectory persist in the agent's working state and progressively distort downstream reasoning and actions, causing performance to degrade exponentially.",
+        "A cross-domain diagnostic study (HORIZON) revealed consistent degradation patterns across multiple state-of-the-art models (GPT-5 variants and Claude-4) as task horizons increase. Planning-related and memory-related failures dominate long-horizon failures, showing that the breakdown is a structural shift in failure composition rather than just a simple drop in success rates.",
+        "Common failure modes in long-horizon tasks include lack of common sense reasoning, inability to apply practical knowledge, state drift (failure to maintain accurate and consistent internal representations), and problems with web navigation and interface understanding, according to real-world workplace task evaluations.",
+        "Research suggests that human-agent collaboration may be more productive than full automation in the near term, as current LLM agents fall well short of the capability needed for fully autonomous completion of complex professional tasks requiring extended action sequences."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 53.5,
+      "steps": 10,
+      "input_tokens": 30493,
+      "output_tokens": 1433,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      false,
+      false
+    ],
+    "judge_tokens": 1200,
+    "coverage": 0.5
+  },
+  {
+    "id": "q30",
+    "category": "limitations",
+    "difficulty": "medium",
+    "question": "What are the privacy risks of sending user documents to LLM APIs?",
+    "expected_points": "data leaves the user's control; possible retention or logging by provider; sensitive data must be removed; local models as alternative",
+    "steps": [
+      {
+        "type": "step",
+        "phase": "plan",
+        "title": "Plan",
+        "detail": "I'll research the privacy risks associated with sending user documents to LLM APIs. Let me search for current information on this topic."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "privacy risks sending documents to LLM APIs"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. AI Privacy Risks & Mitigations – Large Language Models (LLMs; LLM Data Privacy: Safeguarding Data Privacy While Using LLMs; LLMs and Data Privacy: How to Protect Sensitive Information "
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "data privacy concerns large language model APIs"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. LLM Data Privacy: Safeguarding Data Privacy While Using LLMs; Beyond Data Privacy: New Privacy Risks for Large Language Mo; Five Ways LLMs Threaten Your Privacy"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me read some of these sources to get more detailed information about the specific privacy risks."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.edpb.europa.eu/system/files/documents/2025-04/ai-privacy-risks-and-mitigations-in-llms.pdf"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"https://www.edpb.europa.eu/system/files/documents/2025-04/ai-privacy-risks-and-m\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://www.tonic.ai/guides/llm-data-privacy"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "4 relevant passages from \"LLM Data Privacy: Safeguarding Data Privacy While Using LLMs | Tonic.ai\""
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call read_document",
+        "detail": "https://dualitytech.com/blog/llm-data-privacy"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "Error: could not read https://dualitytech.com/blog/llm-data-privacy: Client error '403 Forbidden' for url 'https://dualitytech.com/blog/llm-data-privacy'\nFor more information check: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "Let me search for more specific information on the key privacy risks."
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "LLM API data memorization training data leakage privacy risks"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Identifying and Mitigating Privacy Risks Stemming from Langu; LLM Data Privacy: Protecting Enterprise Data in the World of; Fine-Tuning LLMs: Privacy Risks and NLP"
+      },
+      {
+        "type": "step",
+        "phase": "act",
+        "title": "Call web_search",
+        "detail": "prompt injection attacks model inversion LLM privacy"
+      },
+      {
+        "type": "step",
+        "phase": "observe",
+        "title": "Observe",
+        "detail": "5 results. Pangea Unveils Definitive Study on GenAI Vulnerabilities: In; Multimodal Prompt Injection Attacks: Risks and Defenses for ; LLM01:2025 Prompt Injection - OWASP Gen AI Security Project"
+      },
+      {
+        "type": "step",
+        "phase": "reflect",
+        "title": "Reflect",
+        "detail": "I have gathered sufficient information to compile a comprehensive report on the privacy risks of sending user documents to LLM APIs. Let me organize the findings based on the evidence collected."
+      },
+      {
+        "type": "step",
+        "phase": "write",
+        "title": "Composing findings list",
+        "detail": "8 findings"
+      }
+    ],
+    "report": {
+      "findings": [
+        "Data exposure during transmission: Sending documents to third-party LLM APIs like OpenAI's risks exposing sensitive data during transmission, even though privacy agreements typically prevent providers from storing or training on customer data. The act of transmission itself introduces potential vulnerabilities and security risks.",
+        "Training data leakage and memorization: LLMs can inadvertently memorize and disclose sensitive information from their training data. Users' documents sent to APIs may be incorporated into model training, and the model may subsequently reproduce or expose this information in responses to other users' queries.",
+        "Inference-time data leakage: Models can unintentionally expose sensitive information through their outputs during inference. This occurs through techniques like model inversion or carefully constructed extraction prompts that cause the model to generate memorized training data with unusually high probability.",
+        "Prompt injection attacks: Attackers can manipulate prompts to extract sensitive or proprietary information from LLMs, particularly if the model has access to confidential data through RAG systems, plugins, or system instructions. This vulnerability enables data exfiltration and unauthorized disclosure.",
+        "Insecure logging and caching: User queries and documents may be logged or cached insecurely by LLM API providers or their infrastructure, increasing the risk of unauthorized access or data leaks. Third-party services handling retrieval systems may store data without explicit user consent.",
+        "Unintentional disclosure through model outputs: LLMs can inadvertently include sensitive information such as personally identifiable information (PII) or protected health information (PHI) in their responses, even when instructed not to, as models cannot reliably follow instructions to withhold sensitive data.",
+        "Third-party data handling risks: When LLM systems use external APIs or services for retrieval-augmented generation or other purposes, user documents may be sent to third parties where they can be logged, tracked, or stored outside the user's direct control and without transparent consent.",
+        "Shadow AI and uncontrolled deployment: Sensitive data exposure occurs through shadow AI tools and uncontrolled LLM deployments that process confidential documents outside corporate governance and security oversight, increasing the risk of unauthorized data access and regulatory non-compliance."
+      ]
+    },
+    "metrics": {
+      "type": "metrics",
+      "latency_s": 101.5,
+      "steps": 7,
+      "input_tokens": 15639,
+      "output_tokens": 1210,
+      "cost_usd": null,
+      "model": "claude-haiku-4-5-20251001"
+    },
+    "error": null,
+    "budget_hit": false,
+    "covered": [
+      true,
+      true,
+      false,
+      false
+    ],
+    "judge_tokens": 1299,
+    "coverage": 0.5
+  }
+]

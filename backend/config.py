@@ -9,9 +9,21 @@ from dotenv import load_dotenv
 ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 
+# какая LLM работает в агенте: "anthropic" (Claude, платно) или "gemini" (есть бесплатный уровень)
+PROVIDER = os.getenv("LLM_PROVIDER", "anthropic").strip().lower()
+
 ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "").strip()
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "").strip()
 TAVILY_API_KEY = os.getenv("TAVILY_API_KEY", "").strip()
-MODEL = os.getenv("LLM_MODEL", "claude-haiku-4-5-20251001").strip()
+
+CLAUDE_MODEL = os.getenv("LLM_MODEL", "claude-haiku-4-5-20251001").strip()
+GEMINI_MODEL = os.getenv("GEMINI_MODEL", "gemini-2.5-flash").strip()
+# Gemini принимает запросы в формате OpenAI по этому адресу
+GEMINI_BASE_URL = "https://generativelanguage.googleapis.com/v1beta/openai/"
+
+MODEL = GEMINI_MODEL if PROVIDER == "gemini" else CLAUDE_MODEL
+LLM_API_KEY = GEMINI_API_KEY if PROVIDER == "gemini" else ANTHROPIC_API_KEY
+LLM_KEY_NAME = "GEMINI_API_KEY" if PROVIDER == "gemini" else "ANTHROPIC_API_KEY"
 PRICE_IN = float(os.getenv("PRICE_PER_MTOK_INPUT", "0") or 0)
 PRICE_OUT = float(os.getenv("PRICE_PER_MTOK_OUTPUT", "0") or 0)
 
