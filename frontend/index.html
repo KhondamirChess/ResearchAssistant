@@ -1,0 +1,432 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Agentic Research Assistant</title>
+<style>
+:root{--navy:#182A48;--orange:#F58039;--dorange:#DA601D;--gray:#67707E;--border:#DDE1E6;--bg:#FAFAF8;
+--lblue:#EBF1F8;--lorange:#FFF2E7;--text:#1F2937;--green:#2E7D5B;--red:#B54C4C;
+--shadow:0 2px 8px rgba(0,0,0,.08)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Arial,Helvetica,"Noto Sans KR","Malgun Gothic","Apple SD Gothic Neo","Noto Sans SC","Microsoft YaHei","PingFang SC",sans-serif;font-size:14px;line-height:1.45}
+header{max-width:1240px;margin:0 auto;padding:22px 24px 6px;display:flex;align-items:flex-end;justify-content:space-between;gap:16px;flex-wrap:wrap}
+h1{margin:0;font-size:26px;color:var(--navy)}
+.sub{color:var(--gray);margin-top:4px}
+.badge{display:inline-block;padding:3px 10px;border-radius:99px;font-size:12px;font-weight:bold;background:var(--lblue);color:var(--navy)}
+.badge.live{background:#E3F4EC;color:var(--green)}
+main{max-width:1240px;margin:0 auto;padding:12px 24px 40px;display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:20px}
+.card{background:#fff;border:1px solid var(--border);border-radius:14px;box-shadow:var(--shadow);padding:18px}
+.full{grid-column:1/-1}
+.label{font-size:11px;font-weight:bold;color:var(--gray);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+textarea{width:100%;min-height:76px;resize:vertical;padding:12px;border:1px solid var(--border);border-radius:10px;font:inherit;color:var(--text)}
+textarea:focus,select:focus,button:focus-visible{outline:2px solid var(--orange);outline-offset:1px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:12px}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:10px;overflow:hidden}
+.seg button{border:0;background:#fff;padding:8px 14px;cursor:pointer;font:inherit;color:var(--gray)}
+.seg button.on{background:var(--navy);color:#fff}
+.seg button:disabled{opacity:.45;cursor:not-allowed}
+select{padding:8px;border:1px solid var(--border);border-radius:10px;font:inherit;background:#fff}
+.btn{border:0;border-radius:10px;padding:10px 18px;font:inherit;font-weight:bold;cursor:pointer}
+.btn.primary{background:var(--orange);color:#fff}.btn.primary:hover{background:var(--dorange)}
+.btn.ghost{background:#fff;border:1px solid var(--border);color:var(--navy)}.btn.ghost:hover{background:var(--lblue)}
+.btn.stop{background:var(--red);color:#fff}
+.btn:disabled{opacity:.45;cursor:not-allowed}
+.hint{font-size:12px;color:var(--gray);margin-top:8px}
+.err{background:#FBEAEA;border:1px solid #E7B9B9;color:#7A2B2B;border-radius:10px;padding:10px 12px;margin-top:12px;display:none}
+/* trace */
+.trace{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;max-height:560px;overflow:auto}
+.step{display:flex;gap:12px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:#fff;animation:in .25s ease}
+@keyframes in{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+.dot{flex:none;width:30px;height:30px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:bold;font-size:13px;background:var(--orange)}
+.dot.plan{background:var(--navy)}.dot.observe{background:#4F79B5}.dot.reflect{background:var(--dorange)}.dot.write{background:var(--green)}.dot.stop{background:var(--red)}
+.st-title{font-weight:bold;color:var(--navy)}
+.st-detail{color:var(--gray);font-size:12.5px;word-break:break-word}
+.empty{color:var(--gray);padding:18px 4px}
+.metrics{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.metric{background:var(--lblue);border-radius:10px;padding:8px 12px;min-width:92px}
+.metric b{display:block;font-size:18px;color:var(--navy)}.metric span{font-size:11px;color:var(--gray)}
+/* report */
+.rhead{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.rhead h2{margin:0;font-size:18px;color:var(--navy)}
+.count{color:var(--gray);font-size:12px;margin:0 0 10px}
+.findings{margin:0;padding:0;list-style:none;counter-reset:f;display:flex;flex-direction:column;gap:10px}
+.findings li{counter-increment:f;display:flex;gap:12px;padding:10px 12px;border:1px solid var(--border);border-radius:12px;background:#fff}
+.findings li::before{content:counter(f);flex:none;width:26px;height:26px;border-radius:50%;background:var(--lorange);color:var(--dorange);font-weight:bold;font-size:12.5px;display:flex;align-items:center;justify-content:center}
+.head-right{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+/* history */
+.hist{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:6px}
+.hist button{width:100%;text-align:left;background:var(--bg);border:1px solid var(--border);border-radius:10px;padding:8px 12px;cursor:pointer;font:inherit;color:var(--text);display:flex;justify-content:space-between;gap:10px}
+.hist button:hover{background:var(--lblue)}
+.hist small{color:var(--gray);white-space:nowrap}
+@media (max-width:860px){main{grid-template-columns:1fr;padding:12px 16px 32px}header{padding:18px 16px 4px}}
+</style>
+</head>
+<body>
+<header>
+  <div>
+    <h1 data-i18n="title">LLM-Based Agentic Research Assistant</h1>
+    <div class="sub" data-i18n="sub"></div>
+  </div>
+  <div class="head-right">
+    <div class="seg" id="langsw" role="group" aria-label="Language">
+      <button type="button" data-lang="en">English</button>
+      <button type="button" data-lang="ko">한국어</button>
+      <button type="button" data-lang="zh">中文</button>
+      <button type="button" data-lang="uz">Oʻzbek</button>
+    </div>
+    <span id="status" class="badge"></span>
+  </div>
+</header>
+
+<main>
+  <section class="card full">
+    <div class="label" data-i18n="question"></div>
+    <textarea id="q" maxlength="500"></textarea>
+    <div class="row">
+      <div class="seg" role="group" aria-label="Mode">
+        <button id="m-demo" class="on" type="button" data-i18n="demo"></button>
+        <button id="m-live" type="button" data-i18n="live"></button>
+      </div>
+      <label><span data-i18n="maxSteps"></span>
+        <select id="steps"><option>3</option><option>4</option><option selected>6</option><option>8</option><option>10</option></select>
+      </label>
+      <button id="run" class="btn primary" type="button"></button>
+      <button id="stop" class="btn stop" type="button" hidden data-i18n="stop"></button>
+      <button id="reset" class="btn ghost" type="button" data-i18n="clear"></button>
+    </div>
+    <div class="hint" id="modehint"></div>
+    <div class="err" id="err" role="alert"></div>
+  </section>
+
+  <section class="card">
+    <div class="label" data-i18n="traceLabel"></div>
+    <ul class="trace" id="trace"></ul>
+    <div class="metrics" id="metrics"></div>
+  </section>
+
+  <section class="card">
+    <div class="rhead">
+      <h2 data-i18n="report"></h2>
+      <div class="row" style="margin:0">
+        <button id="copy" class="btn ghost" type="button" disabled></button>
+        <button id="dl" class="btn ghost" type="button" disabled data-i18n="download"></button>
+      </div>
+    </div>
+    <div id="report"></div>
+  </section>
+
+  <section class="card full">
+    <div class="rhead">
+      <div class="label" style="margin:0" data-i18n="history"></div>
+      <button id="clearhist" class="btn ghost" type="button" data-i18n="clearHistory"></button>
+    </div>
+    <ul class="hist" id="hist"></ul>
+  </section>
+</main>
+
+<script>
+const $ = id => document.getElementById(id);
+
+/* ---------- translations ---------- */
+const I18N = {
+  en: {
+    title: "LLM-Based Agentic Research Assistant",
+    sub: "Ask a research question. The agent plans, searches, reads and writes a list of findings.",
+    stChecking: "checking backend…", stDemo: "Backend connected · demo only", stLive: "Backend connected · live ready", stOff: "Backend not reachable",
+    liveLocked: "Add ANTHROPIC_API_KEY and TAVILY_API_KEY to .env and restart the server",
+    question: "Research question", placeholder: "Type your research question…",
+    demo: "Demo", live: "Live", maxSteps: "Max steps",
+    run: "Run research", running: "Running…", stop: "Stop", clear: "Clear",
+    hintDemo: "Demo mode uses mock data, so it works without any API keys.",
+    hintLive: "Live mode calls Claude ({model}) and Tavily. It uses your API credits.",
+    traceLabel: "Agent trace · Plan → Act → Observe → Reflect → Write",
+    traceEmpty: "The agent's steps will appear here.",
+    report: "Report", reportEmpty: "The list of findings will appear here.",
+    working: "Working…", noReport: "No report was produced.",
+    count: "{n} findings", copy: "Copy", copied: "Copied ✓", copyFail: "Copy failed", download: "Download .md",
+    history: "History", clearHistory: "Clear history", noHistory: "No past runs yet.", confirmDel: "Delete all saved runs?",
+    tooShort: "Type a research question first (at least 3 characters).", stopped: "Stopped by user",
+    mTime: "total time", mCalls: "tool calls", mTokens: "tokens", mCost: "cost", mModel: "model", mDemo: "mock"
+  },
+  ko: {
+    title: "LLM 기반 에이전트형 리서치 어시스턴트",
+    sub: "연구 질문을 입력하세요. 에이전트가 계획을 세우고, 검색하고, 읽고, 조사 결과 목록을 작성합니다.",
+    stChecking: "백엔드 확인 중…", stDemo: "백엔드 연결됨 · 데모 전용", stLive: "백엔드 연결됨 · 라이브 사용 가능", stOff: "백엔드에 연결할 수 없음",
+    liveLocked: ".env에 ANTHROPIC_API_KEY와 TAVILY_API_KEY를 추가한 뒤 서버를 다시 시작하세요",
+    question: "연구 질문", placeholder: "연구 질문을 입력하세요…",
+    demo: "데모", live: "라이브", maxSteps: "최대 단계",
+    run: "리서치 실행", running: "실행 중…", stop: "중지", clear: "지우기",
+    hintDemo: "데모 모드는 목업 데이터를 사용하므로 API 키 없이 동작합니다.",
+    hintLive: "라이브 모드는 Claude({model})와 Tavily를 호출하며 API 크레딧을 사용합니다.",
+    traceLabel: "에이전트 추적 · 계획 → 실행 → 관찰 → 성찰 → 작성",
+    traceEmpty: "에이전트의 단계가 여기에 표시됩니다.",
+    report: "보고서", reportEmpty: "조사 결과 목록이 여기에 표시됩니다.",
+    working: "작업 중…", noReport: "보고서가 생성되지 않았습니다.",
+    count: "조사 결과 {n}건", copy: "복사", copied: "복사됨 ✓", copyFail: "복사 실패", download: ".md 다운로드",
+    history: "기록", clearHistory: "기록 지우기", noHistory: "아직 실행 기록이 없습니다.", confirmDel: "저장된 모든 실행 기록을 삭제할까요?",
+    tooShort: "먼저 연구 질문을 입력하세요(3자 이상).", stopped: "사용자가 중지함",
+    mTime: "총 시간", mCalls: "도구 호출", mTokens: "토큰", mCost: "비용", mModel: "모델", mDemo: "목업"
+  },
+  zh: {
+    title: "基于大模型的智能体研究助手",
+    sub: "输入研究问题。智能体会制定计划、搜索、阅读并生成研究发现列表。",
+    stChecking: "正在检查后端…", stDemo: "后端已连接 · 仅演示模式", stLive: "后端已连接 · 可使用实时模式", stOff: "无法连接后端",
+    liveLocked: "请在 .env 中添加 ANTHROPIC_API_KEY 和 TAVILY_API_KEY，然后重启服务器",
+    question: "研究问题", placeholder: "请输入研究问题…",
+    demo: "演示", live: "实时", maxSteps: "最大步数",
+    run: "开始研究", running: "运行中…", stop: "停止", clear: "清除",
+    hintDemo: "演示模式使用模拟数据，无需任何 API 密钥。",
+    hintLive: "实时模式会调用 Claude（{model}）和 Tavily，并消耗您的 API 额度。",
+    traceLabel: "智能体轨迹 · 计划 → 行动 → 观察 → 反思 → 撰写",
+    traceEmpty: "智能体的步骤将显示在这里。",
+    report: "报告", reportEmpty: "研究发现列表将显示在这里。",
+    working: "处理中…", noReport: "未生成报告。",
+    count: "共 {n} 条发现", copy: "复制", copied: "已复制 ✓", copyFail: "复制失败", download: "下载 .md",
+    history: "历史记录", clearHistory: "清除历史", noHistory: "暂无历史记录。", confirmDel: "确定删除所有已保存的运行记录吗？",
+    tooShort: "请先输入研究问题（至少 3 个字符）。", stopped: "已被用户停止",
+    mTime: "总耗时", mCalls: "工具调用", mTokens: "令牌", mCost: "费用", mModel: "模型", mDemo: "模拟"
+  },
+  uz: {
+    title: "LLM asosidagi agentli tadqiqot yordamchisi",
+    sub: "Tadqiqot savolini kiriting. Agent reja tuzadi, qidiradi, o‘qiydi va topilmalar ro‘yxatini yozadi.",
+    stChecking: "Backend tekshirilmoqda…", stDemo: "Backend ulangan · faqat demo", stLive: "Backend ulangan · jonli rejim tayyor", stOff: "Backendga ulanib bo‘lmadi",
+    liveLocked: ".env fayliga ANTHROPIC_API_KEY va TAVILY_API_KEY qo‘shing va serverni qayta ishga tushiring",
+    question: "Tadqiqot savoli", placeholder: "Tadqiqot savolingizni kiriting…",
+    demo: "Demo", live: "Jonli", maxSteps: "Maks. qadamlar",
+    run: "Tadqiqotni boshlash", running: "Bajarilmoqda…", stop: "To‘xtatish", clear: "Tozalash",
+    hintDemo: "Demo rejimi mock ma’lumotlardan foydalanadi, shuning uchun API kalitlarisiz ishlaydi.",
+    hintLive: "Jonli rejim Claude ({model}) va Tavily’ni chaqiradi. API kreditlaringiz sarflanadi.",
+    traceLabel: "Agent izi · Reja → Harakat → Kuzatish → Mulohaza → Yozish",
+    traceEmpty: "Agentning qadamlari shu yerda ko‘rinadi.",
+    report: "Hisobot", reportEmpty: "Topilmalar ro‘yxati shu yerda ko‘rinadi.",
+    working: "Ishlanmoqda…", noReport: "Hisobot yaratilmadi.",
+    count: "Jami {n} ta topilma", copy: "Nusxalash", copied: "Nusxalandi ✓", copyFail: "Nusxalab bo‘lmadi", download: "Yuklab olish .md",
+    history: "Tarix", clearHistory: "Tarixni tozalash", noHistory: "Hozircha bajarilgan tadqiqotlar yo‘q.", confirmDel: "Barcha saqlangan tadqiqotlar o‘chirilsinmi?",
+    tooShort: "Avval tadqiqot savolini kiriting (kamida 3 belgi).", stopped: "Foydalanuvchi to‘xtatdi",
+    mTime: "umumiy vaqt", mCalls: "asbob chaqiruvlari", mTokens: "tokenlar", mCost: "narx", mModel: "model", mDemo: "mock"
+  }
+};
+const LANG_CODES = Object.keys(I18N);
+function pickLang() {
+  let saved = null;
+  try { saved = localStorage.getItem("lang"); } catch (e) {}
+  if (LANG_CODES.includes(saved)) return saved;
+  const nav = (navigator.language || "en").slice(0, 2).toLowerCase();
+  return LANG_CODES.includes(nav) ? nav : "en";
+}
+let lang = pickLang();
+const t = (k, vars = {}) => (I18N[lang][k] ?? I18N.en[k] ?? k).replace(/\{(\w+)\}/g, (_, v) => vars[v] ?? "");
+
+const PHASE_NUM = {plan:"1", act:"2", observe:"3", reflect:"4", write:"5", stop:"■"};
+let mode = "demo", abortCtl = null, running = false, lastReport = null, lastQuestion = "", health = {};
+let statusKey = "stChecking", lastMetrics = null, traceEmpty = true, reportState = "empty";
+
+// build elements safely (text only, never innerHTML with model output)
+function el(tag, attrs = {}, ...kids) {
+  const e = document.createElement(tag);
+  for (const [k, v] of Object.entries(attrs)) {
+    if (k === "class") e.className = v; else if (k === "text") e.textContent = v; else e.setAttribute(k, v);
+  }
+  for (const k of kids) if (k != null) e.append(k);
+  return e;
+}
+
+/* ---------- language ---------- */
+function applyLang() {
+  document.documentElement.lang = lang;
+  document.querySelectorAll("[data-i18n]").forEach(n => n.textContent = t(n.dataset.i18n));
+  document.querySelectorAll("#langsw button").forEach(b => b.classList.toggle("on", b.dataset.lang === lang));
+  $("q").placeholder = t("placeholder");
+  $("run").textContent = running ? t("running") : t("run");
+  $("copy").textContent = t("copy");
+  renderStatus(); setMode(mode);
+  $("m-live").title = (health.live_available && health.search_available) ? "" : t("liveLocked");
+  if (traceEmpty) showTraceEmpty();
+  if (lastMetrics) renderMetrics(lastMetrics);
+  if (lastReport) renderReport(lastReport); else renderReportState();
+  loadHistory();
+}
+document.querySelectorAll("#langsw button").forEach(b => b.onclick = () => {
+  lang = b.dataset.lang;
+  try { localStorage.setItem("lang", lang); } catch (e) {}
+  applyLang();
+});
+
+/* ---------- mode & status ---------- */
+function setMode(m) {
+  mode = m;
+  $("m-demo").classList.toggle("on", m === "demo");
+  $("m-live").classList.toggle("on", m === "live");
+  $("modehint").textContent = m === "demo" ? t("hintDemo") : t("hintLive", {model: health.model || "?"});
+}
+$("m-demo").onclick = () => setMode("demo");
+$("m-live").onclick = () => setMode("live");
+
+function renderStatus() {
+  $("status").textContent = t(statusKey);
+  $("status").className = "badge" + (statusKey === "stLive" ? " live" : "");
+}
+async function loadHealth() {
+  try {
+    health = await (await fetch("/api/health")).json();
+    const ready = health.live_available && health.search_available;
+    statusKey = ready ? "stLive" : "stDemo";
+    $("m-live").disabled = !ready;
+    $("m-live").title = ready ? "" : t("liveLocked");
+  } catch (e) { statusKey = "stOff"; }
+  renderStatus(); setMode(mode);
+}
+
+/* ---------- trace & metrics ---------- */
+function showTraceEmpty() { traceEmpty = true; $("trace").replaceChildren(el("li", {class: "empty", text: t("traceEmpty")})); }
+function clearTrace() {
+  traceEmpty = false; lastMetrics = null;
+  $("trace").replaceChildren(); $("metrics").replaceChildren();
+}
+function addStep(s) {
+  if (traceEmpty) clearTrace();
+  const li = el("li", {class: "step"},
+    el("div", {class: "dot " + s.phase, text: PHASE_NUM[s.phase] || "•"}),
+    el("div", {}, el("div", {class: "st-title", text: s.title || s.phase}),
+      s.detail ? el("div", {class: "st-detail", text: s.detail}) : null));
+  $("trace").append(li);
+  li.scrollIntoView({block: "nearest"});
+}
+function renderMetrics(m) {
+  lastMetrics = m;
+  const box = $("metrics"); box.replaceChildren();
+  const add = (v, l) => box.append(el("div", {class: "metric"}, el("b", {text: String(v)}), el("span", {text: l})));
+  add(m.latency_s + " s", t("mTime"));
+  add(m.steps, t("mCalls"));
+  if (m.mode === "live") {
+    add(m.input_tokens + m.output_tokens, t("mTokens"));
+    if (m.cost_usd != null) add("$" + m.cost_usd, t("mCost"));
+  }
+  add(m.mode === "live" ? m.model : t("mDemo"), t("mModel"));
+}
+
+/* ---------- report: a plain list of findings ---------- */
+function findingsOf(r) {
+  if (Array.isArray(r.findings)) return r.findings;
+  // runs saved by an older version used key_findings [{text}]
+  return (r.key_findings || []).map(f => f.text);
+}
+function renderReportState() {
+  const msg = {empty: "reportEmpty", working: "working", none: "noReport"}[reportState] || "reportEmpty";
+  $("report").replaceChildren(el("div", {class: "empty", text: t(msg)}));
+}
+function renderReport(r) {
+  lastReport = r; reportState = "report";
+  const list = findingsOf(r);
+  const box = $("report"); box.replaceChildren();
+  box.append(el("p", {class: "count", text: t("count", {n: list.length})}));
+  const ol = el("ol", {class: "findings"});
+  list.forEach(f => ol.append(el("li", {}, el("span", {text: f}))));
+  box.append(ol);
+  $("copy").disabled = $("dl").disabled = false;
+}
+function toMarkdown(q, r) {
+  return [`# ${q}`, "", ...findingsOf(r).map((f, i) => `${i + 1}. ${f}`)].join("\n") + "\n";
+}
+
+/* ---------- running the agent ---------- */
+function showError(msg) { $("err").textContent = msg; $("err").style.display = "block"; }
+function setRunning(v) {
+  running = v; $("run").disabled = v; $("run").textContent = v ? t("running") : t("run");
+  $("stop").hidden = !v; $("q").disabled = v; $("steps").disabled = v;
+}
+function handle(ev) {
+  if (ev.type === "step") addStep(ev);
+  else if (ev.type === "report") renderReport(ev.report);
+  else if (ev.type === "metrics") renderMetrics(ev);
+  else if (ev.type === "error") showError(ev.message);
+}
+
+async function run() {
+  const q = $("q").value.trim();
+  if (q.length < 3) { showError(t("tooShort")); $("q").focus(); return; }
+  $("err").style.display = "none";
+  clearTrace(); reportState = "working"; renderReportState();
+  $("copy").disabled = $("dl").disabled = true; lastReport = null; lastQuestion = q;
+  setRunning(true); abortCtl = new AbortController();
+  try {
+    const res = await fetch("/api/research", {
+      method: "POST", headers: {"Content-Type": "application/json"}, signal: abortCtl.signal,
+      body: JSON.stringify({question: q, mode, max_steps: Number($("steps").value), lang})
+    });
+    if (!res.ok) { const e = await res.json().catch(() => ({})); throw new Error(e.detail || ("HTTP " + res.status)); }
+    const reader = res.body.getReader(), dec = new TextDecoder(); let buf = "";
+    for (;;) {
+      const {value, done} = await reader.read(); if (done) break;
+      buf += dec.decode(value, {stream: true});
+      let i;
+      while ((i = buf.indexOf("\n")) >= 0) {
+        const line = buf.slice(0, i).trim(); buf = buf.slice(i + 1);
+        if (line) handle(JSON.parse(line));
+      }
+    }
+  } catch (e) {
+    if (e.name === "AbortError") addStep({phase: "stop", title: t("stopped")});
+    else showError(String(e.message || e));
+  } finally {
+    setRunning(false);
+    if (!lastReport) { reportState = "none"; renderReportState(); }
+    loadHistory();
+  }
+}
+$("run").onclick = run;
+$("stop").onclick = () => abortCtl && abortCtl.abort();
+$("q").addEventListener("keydown", e => { if (e.key === "Enter" && (e.ctrlKey || e.metaKey) && !running) run(); });
+$("reset").onclick = () => {
+  if (running) return;
+  $("q").value = ""; $("err").style.display = "none"; lastReport = null; lastMetrics = null;
+  showTraceEmpty(); $("metrics").replaceChildren();
+  reportState = "empty"; renderReportState();
+  $("copy").disabled = $("dl").disabled = true;
+};
+$("copy").onclick = async () => {
+  if (!lastReport) return;
+  try { await navigator.clipboard.writeText(toMarkdown(lastQuestion, lastReport)); $("copy").textContent = t("copied"); }
+  catch (e) { $("copy").textContent = t("copyFail"); }
+  setTimeout(() => $("copy").textContent = t("copy"), 1500);
+};
+$("dl").onclick = () => {
+  if (!lastReport) return;
+  const blob = new Blob([toMarkdown(lastQuestion, lastReport)], {type: "text/markdown"});
+  const a = el("a", {href: URL.createObjectURL(blob), download: "research-report.md"});
+  document.body.append(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+};
+
+/* ---------- history ---------- */
+async function loadHistory() {
+  try {
+    const items = await (await fetch("/api/history")).json();
+    const ul = $("hist"); ul.replaceChildren();
+    if (!items.length) { ul.append(el("li", {class: "empty", text: t("noHistory")})); return; }
+    items.forEach(it => {
+      const when = new Date(it.created_at * 1000).toLocaleString(lang === "uz" ? "uz-UZ" : lang, {month: "short", day: "numeric", hour: "2-digit", minute: "2-digit"});
+      const b = el("button", {type: "button"}, el("span", {text: it.question}), el("small", {text: it.mode + " · " + when}));
+      b.onclick = () => openHistory(it.id);
+      ul.append(el("li", {}, b));
+    });
+  } catch (e) { /* backend offline: leave list as is */ }
+}
+async function openHistory(id) {
+  if (running) return;
+  const it = await (await fetch("/api/history/" + encodeURIComponent(id))).json();
+  $("q").value = it.question; lastQuestion = it.question; $("err").style.display = "none";
+  clearTrace(); it.steps.forEach(addStep);
+  if (it.metrics) renderMetrics(it.metrics);
+  renderReport(it.report);
+  window.scrollTo({top: 0, behavior: "smooth"});
+}
+$("clearhist").onclick = async () => {
+  if (!confirm(t("confirmDel"))) return;
+  await fetch("/api/history", {method: "DELETE"}); loadHistory();
+};
+
+applyLang(); loadHealth();
+</script>
+</body>
+</html>
