@@ -19,8 +19,7 @@ from .tools import HANDLERS, TOOL_SPECS
 
 log = logging.getLogger("backend.agent")
 
-LANGS = {"en": "English", "ko": "Korean", "zh": "Chinese (Simplified)",
-         "uz": "Uzbek (Latin script)"}
+LANGS = {"en": "English", "ko": "Korean"}
 MOCK_FILE = config.ROOT / "backend" / "mock_data.json"
 MAX_FINDINGS = 15
 
@@ -85,33 +84,6 @@ T = {
         "budget": "단계 한도에 도달",
         "budget_detail": "수집한 근거로 보고서를 작성합니다.",
         "blocked": "알 수 없는 도구 차단됨: {name}",
-    },
-    "zh": {
-        "plan": "计划", "observe": "观察", "reflect": "反思", "call": "调用 {tool}",
-        "plan_detail": "模拟数据。将“{topic}”拆分为 3 个子问题：(1) 背景，(2) 证据，"
-                       "(3) 局限与批评。",
-        "obs_search": "2 条结果（模拟数据）",
-        "obs_read": "从模拟来源中找到 3 段相关内容",
-        "reflect1": "背景已覆盖。证据和局限仍然缺失，因此回到行动步骤。",
-        "reflect2": "所有子问题都已有证据。",
-        "compose": "正在撰写研究发现列表", "compose_detail": "共 {n} 条发现",
-        "budget": "已达到步数上限",
-        "budget_detail": "根据已收集的证据撰写报告。",
-        "blocked": "已阻止未知工具：{name}",
-    },
-    "uz": {
-        "plan": "Reja", "observe": "Kuzatish", "reflect": "Mulohaza", "call": "{tool} chaqiruvi",
-        "plan_detail": "MOCK MA’LUMOT. \"{topic}\" savolini 3 ta kichik savolga ajratamiz: "
-                       "(1) kontekst, (2) dalillar, (3) cheklovlar va tanqid.",
-        "obs_search": "2 ta natija (mock ma’lumot)",
-        "obs_read": "Mock manbadan 3 ta tegishli parcha",
-        "reflect1": "Kontekst yetarli. Dalillar va cheklovlar hali yetishmaydi, shuning uchun "
-                    "Harakat bosqichiga qaytamiz.",
-        "reflect2": "Barcha kichik savollar uchun dalillar mavjud.",
-        "compose": "Topilmalar ro‘yxati tuzilmoqda", "compose_detail": "Jami {n} ta topilma",
-        "budget": "Qadamlar chegarasiga yetildi",
-        "budget_detail": "Hisobot to‘plangan dalillar asosida yoziladi.",
-        "blocked": "Noma’lum asbob bloklandi: {name}",
     },
 }
 

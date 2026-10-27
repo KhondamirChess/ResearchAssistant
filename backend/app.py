@@ -43,7 +43,7 @@ class ResearchRequest(BaseModel):
     question: str = Field(min_length=3, max_length=500)
     mode: Literal["demo", "live"] = "demo"
     max_steps: int = Field(6, ge=1, le=10)
-    lang: Literal["en", "ko", "zh", "uz"] = "en"
+    lang: Literal["en", "ko"] = "en"
 
 
 @app.get("/api/health")

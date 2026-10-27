@@ -72,8 +72,6 @@ select{padding:8px;border:1px solid var(--border);border-radius:10px;font:inheri
     <div class="seg" id="langsw" role="group" aria-label="Language">
       <button type="button" data-lang="en">English</button>
       <button type="button" data-lang="ko">한국어</button>
-      <button type="button" data-lang="zh">中文</button>
-      <button type="button" data-lang="uz">Oʻzbek</button>
     </div>
     <span id="status" class="badge"></span>
   </div>
@@ -167,44 +165,6 @@ const I18N = {
     history: "기록", clearHistory: "기록 지우기", noHistory: "아직 실행 기록이 없습니다.", confirmDel: "저장된 모든 실행 기록을 삭제할까요?",
     tooShort: "먼저 연구 질문을 입력하세요(3자 이상).", stopped: "사용자가 중지함",
     mTime: "총 시간", mCalls: "도구 호출", mTokens: "토큰", mCost: "비용", mModel: "모델", mDemo: "목업"
-  },
-  zh: {
-    title: "基于大模型的智能体研究助手",
-    sub: "输入研究问题。智能体会制定计划、搜索、阅读并生成研究发现列表。",
-    stChecking: "正在检查后端…", stDemo: "后端已连接 · 仅演示模式", stLive: "后端已连接 · 可使用实时模式", stOff: "无法连接后端",
-    liveLocked: "请在 .env 中添加 ANTHROPIC_API_KEY 和 TAVILY_API_KEY，然后重启服务器",
-    question: "研究问题", placeholder: "请输入研究问题…",
-    demo: "演示", live: "实时", maxSteps: "最大步数",
-    run: "开始研究", running: "运行中…", stop: "停止", clear: "清除",
-    hintDemo: "演示模式使用模拟数据，无需任何 API 密钥。",
-    hintLive: "实时模式会调用 Claude（{model}）和 Tavily，并消耗您的 API 额度。",
-    traceLabel: "智能体轨迹 · 计划 → 行动 → 观察 → 反思 → 撰写",
-    traceEmpty: "智能体的步骤将显示在这里。",
-    report: "报告", reportEmpty: "研究发现列表将显示在这里。",
-    working: "处理中…", noReport: "未生成报告。",
-    count: "共 {n} 条发现", copy: "复制", copied: "已复制 ✓", copyFail: "复制失败", download: "下载 .md",
-    history: "历史记录", clearHistory: "清除历史", noHistory: "暂无历史记录。", confirmDel: "确定删除所有已保存的运行记录吗？",
-    tooShort: "请先输入研究问题（至少 3 个字符）。", stopped: "已被用户停止",
-    mTime: "总耗时", mCalls: "工具调用", mTokens: "令牌", mCost: "费用", mModel: "模型", mDemo: "模拟"
-  },
-  uz: {
-    title: "LLM asosidagi agentli tadqiqot yordamchisi",
-    sub: "Tadqiqot savolini kiriting. Agent reja tuzadi, qidiradi, o‘qiydi va topilmalar ro‘yxatini yozadi.",
-    stChecking: "Backend tekshirilmoqda…", stDemo: "Backend ulangan · faqat demo", stLive: "Backend ulangan · jonli rejim tayyor", stOff: "Backendga ulanib bo‘lmadi",
-    liveLocked: ".env fayliga ANTHROPIC_API_KEY va TAVILY_API_KEY qo‘shing va serverni qayta ishga tushiring",
-    question: "Tadqiqot savoli", placeholder: "Tadqiqot savolingizni kiriting…",
-    demo: "Demo", live: "Jonli", maxSteps: "Maks. qadamlar",
-    run: "Tadqiqotni boshlash", running: "Bajarilmoqda…", stop: "To‘xtatish", clear: "Tozalash",
-    hintDemo: "Demo rejimi mock ma’lumotlardan foydalanadi, shuning uchun API kalitlarisiz ishlaydi.",
-    hintLive: "Jonli rejim Claude ({model}) va Tavily’ni chaqiradi. API kreditlaringiz sarflanadi.",
-    traceLabel: "Agent izi · Reja → Harakat → Kuzatish → Mulohaza → Yozish",
-    traceEmpty: "Agentning qadamlari shu yerda ko‘rinadi.",
-    report: "Hisobot", reportEmpty: "Topilmalar ro‘yxati shu yerda ko‘rinadi.",
-    working: "Ishlanmoqda…", noReport: "Hisobot yaratilmadi.",
-    count: "Jami {n} ta topilma", copy: "Nusxalash", copied: "Nusxalandi ✓", copyFail: "Nusxalab bo‘lmadi", download: "Yuklab olish .md",
-    history: "Tarix", clearHistory: "Tarixni tozalash", noHistory: "Hozircha bajarilgan tadqiqotlar yo‘q.", confirmDel: "Barcha saqlangan tadqiqotlar o‘chirilsinmi?",
-    tooShort: "Avval tadqiqot savolini kiriting (kamida 3 belgi).", stopped: "Foydalanuvchi to‘xtatdi",
-    mTime: "umumiy vaqt", mCalls: "asbob chaqiruvlari", mTokens: "tokenlar", mCost: "narx", mModel: "model", mDemo: "mock"
   }
 };
 const LANG_CODES = Object.keys(I18N);
@@ -405,7 +365,7 @@ async function loadHistory() {
     const ul = $("hist"); ul.replaceChildren();
     if (!items.length) { ul.append(el("li", {class: "empty", text: t("noHistory")})); return; }
     items.forEach(it => {
-      const when = new Date(it.created_at * 1000).toLocaleString(lang === "uz" ? "uz-UZ" : lang, {month: "short", day: "numeric", hour: "2-digit", minute: "2-digit"});
+      const when = new Date(it.created_at * 1000).toLocaleString(lang, {month: "short", day: "numeric", hour: "2-digit", minute: "2-digit"});
       const b = el("button", {type: "button"}, el("span", {text: it.question}), el("small", {text: it.mode + " · " + when}));
       b.onclick = () => openHistory(it.id);
       ul.append(el("li", {}, b));

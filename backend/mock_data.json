@@ -1,13 +1,11 @@
 {
-  "_note": "Mock data for Demo mode. Each item has the same question and findings in en / ko / zh / uz. Add your own items here; no code change needed. Use {topic} only in the fallback block.",
+  "_note": "Mock data for Demo mode. Each item has the same question and findings in en / ko. Add your own items here; no code change needed. Use {topic} only in the fallback block.",
   "items": [
     {
       "id": "rag-limitations",
       "questions": {
         "en": "What are the main limitations of retrieval-augmented generation?",
-        "ko": "검색 증강 생성(RAG)의 주요 한계는 무엇인가요?",
-        "zh": "检索增强生成（RAG）的主要局限性是什么？",
-        "uz": "Retrieval-augmented generation (RAG)ning asosiy cheklovlari nimalar?"
+        "ko": "검색 증강 생성(RAG)의 주요 한계는 무엇인가요?"
       },
       "findings": {
         "en": [
@@ -23,20 +21,6 @@
           "올바른 문서를 찾았더라도 모델이 검색된 문단을 무시하거나 잘못 해석할 수 있어 답변이 근거에 충실하지 않을 수 있습니다.",
           "모든 질의에 추가 검색 단계가 필요하므로 지연 시간과 인프라 비용이 늘어납니다.",
           "여러 문서의 사실을 결합해야 하는 다단계(multi-hop) 질문은 한 번의 검색으로 처리하기 어렵습니다."
-        ],
-        "zh": [
-          "回答质量受限于检索质量：如果检索器漏掉了相关段落，模型就没有正确的依据可用。",
-          "分块方式很关键。块太小会丢失上下文，块太大则会引入噪声并增加成本。",
-          "即使找到了正确的文档，模型仍可能忽略或误读检索到的段落，导致回答不忠实于原文。",
-          "每次查询都要多一步检索，带来额外的延迟和基础设施成本。",
-          "需要综合多篇文档事实的多跳问题，很难靠单次检索解决。"
-        ],
-        "uz": [
-          "Javob sifati qidiruv sifati bilan cheklanadi: qidiruvchi kerakli parchani topa olmasa, modelda tayanish uchun to‘g‘ri ma’lumot bo‘lmaydi.",
-          "Matnni bo‘laklarga ajratish usuli muhim. Juda kichik bo‘laklar kontekstni yo‘qotadi, juda katta bo‘laklar esa shovqin va xarajatni oshiradi.",
-          "To‘g‘ri hujjat topilgan taqdirda ham model topilgan parchani e’tiborsiz qoldirishi yoki noto‘g‘ri tushunishi mumkin.",
-          "Har bir so‘rov qo‘shimcha qidiruv bosqichini talab qiladi, bu kechikish va infratuzilma xarajatini oshiradi.",
-          "Bir nechta hujjatdagi faktlarni birlashtirishni talab qiladigan ko‘p bosqichli savollarni bitta qidiruv bilan hal qilish qiyin."
         ]
       }
     },
@@ -44,9 +28,7 @@
       "id": "agent-tool-choice",
       "questions": {
         "en": "How do LLM agents decide which tool to call?",
-        "ko": "LLM 에이전트는 어떤 도구를 호출할지 어떻게 결정하나요?",
-        "zh": "大模型智能体是如何决定调用哪个工具的？",
-        "uz": "LLM agentlari qaysi asbobni chaqirishni qanday hal qiladi?"
+        "ko": "LLM 에이전트는 어떤 도구를 호출할지 어떻게 결정하나요?"
       },
       "findings": {
         "en": [
@@ -62,20 +44,6 @@
           "모델은 보통 현재 하위 목표를 먼저 추론한 뒤, 스키마에 맞는 인수가 담긴 구조화된 호출을 생성합니다.",
           "각 호출의 결과는 관찰 값으로 다시 입력되고, 모델은 다른 도구를 호출할지 답변할지 결정합니다.",
           "사용 가능한 도구가 많아질수록 정확도가 떨어지므로, 많은 시스템이 관련 도구만 미리 걸러내거나 검색해서 제공합니다."
-        ],
-        "zh": [
-          "工具的名称、描述和参数模式会放入模型的上下文，模型通过阅读这些信息来选择工具。",
-          "清晰且互不重叠的工具描述能提高选择准确率；描述含糊或相互重叠是调用错误工具的常见原因。",
-          "模型通常先推理当前子目标，再生成符合参数模式的结构化调用。",
-          "每次调用的结果会作为观察反馈给模型，由模型决定继续调用其他工具还是直接作答。",
-          "可用工具越多，准确率越低，因此许多系统会先筛选或检索出一小部分相关工具。"
-        ],
-        "uz": [
-          "Asbob nomlari, tavsiflari va parametr sxemalari modelning kontekstiga joylanadi va model ularni o‘qib asbobni tanlaydi.",
-          "Aniq va bir-biridan farq qiladigan tavsiflar tanlov aniqligini oshiradi. Bir-biriga o‘xshash yoki noaniq tavsiflar noto‘g‘ri asbob chaqirilishining keng tarqalgan sababidir.",
-          "Model odatda avval joriy kichik maqsad haqida mulohaza yuritadi, keyin sxemaga mos argumentlar bilan tuzilmali chaqiruv hosil qiladi.",
-          "Har bir chaqiruv natijasi kuzatuv sifatida modelga qaytariladi va model yana asbob chaqirish yoki javob berishni hal qiladi.",
-          "Mavjud asboblar soni ko‘paygani sari aniqlik pasayadi, shuning uchun ko‘p tizimlar avval kichik, tegishli asboblar to‘plamini saralab beradi."
         ]
       }
     },
@@ -83,9 +51,7 @@
       "id": "hallucinated-citations",
       "questions": {
         "en": "What methods exist to reduce hallucinated citations in LLMs?",
-        "ko": "LLM의 환각 인용을 줄이는 방법에는 무엇이 있나요?",
-        "zh": "有哪些方法可以减少大模型编造引用的问题？",
-        "uz": "LLMlarda uydirma havolalarni kamaytirish uchun qanday usullar mavjud?"
+        "ko": "LLM의 환각 인용을 줄이는 방법에는 무엇이 있나요?"
       },
       "findings": {
         "en": [
@@ -101,20 +67,6 @@
           "모델이 근거 문장을 직접 인용하도록 요구하면 근거 없는 주장을 찾아내기 쉬워집니다.",
           "자유 형식 제목 대신 문서 ID로 인용하는 것처럼 출력 형식을 제한하면 지어낸 참고문헌이 줄어듭니다.",
           "어떤 방법도 문제를 완전히 없애지 못하므로 사람의 표본 점검과 자동 인용 정확도 지표가 여전히 필요합니다."
-        ],
-        "zh": [
-          "让回答基于检索到的文档，模型就能引用实际提供给它的来源，而不是凭记忆回忆来源。",
-          "可以在生成后进行校验，确认每个被引用的网址或文献都出现在检索结果中，并删除没有出现的引用。",
-          "要求模型引用支持性原文片段，可以更容易发现没有依据的论断。",
-          "限制输出格式（例如用文档编号而不是自由文本标题来引用）可以减少虚构的参考文献。",
-          "仍然需要人工抽查和自动化的引用准确率指标，因为没有任何方法能完全消除这个问题。"
-        ],
-        "uz": [
-          "Javoblarni topilgan hujjatlarga asoslash modelga xotiradan eslab qolgan manbalar o‘rniga unga haqiqatan berilgan manbalarni keltirish imkonini beradi.",
-          "Keyingi tekshiruv har bir keltirilgan URL yoki havola topilgan materialda bo‘lganini tasdiqlaydi va bo‘lmaganlarini olib tashlaydi.",
-          "Modeldan tasdiqlovchi parchani aynan keltirishni talab qilish asossiz da’volarni aniqlashni osonlashtiradi.",
-          "Chiqish formatini cheklash, masalan erkin sarlavha o‘rniga hujjat ID’si bilan havola berish, uydirma havolalarni kamaytiradi.",
-          "Hech bir usul muammoni to‘liq yo‘q qilmaydi, shuning uchun inson tomonidan tanlab tekshirish va havolalar aniqligining avtomatik ko‘rsatkichlari baribir kerak."
         ]
       }
     },
@@ -122,9 +74,7 @@
       "id": "react-vs-plan-execute",
       "questions": {
         "en": "Compare ReAct and plan-and-execute agent designs",
-        "ko": "ReAct와 계획-실행(plan-and-execute) 에이전트 설계를 비교해 주세요",
-        "zh": "比较 ReAct 与先规划后执行（plan-and-execute）的智能体设计",
-        "uz": "ReAct va plan-and-execute agent dizaynlarini solishtiring"
+        "ko": "ReAct와 계획-실행(plan-and-execute) 에이전트 설계를 비교해 주세요"
       },
       "findings": {
         "en": [
@@ -140,20 +90,6 @@
           "ReAct는 예상 밖의 결과에 잘 적응하지만, 긴 작업에서는 헤매거나 같은 행동을 반복하거나 전체 목표를 놓칠 수 있습니다.",
           "계획-실행은 단순한 실행기가 계획을 따를 수 있어 단계당 비용이 낮을 수 있지만, 초기 계획이 잘못되면 수정하지 않는 한 실패할 수 있습니다.",
           "실제 시스템은 둘을 결합하는 경우가 많습니다. 초기 계획을 세우고 ReAct 방식의 루프를 돌리며, 관찰이 계획과 어긋나면 재계획합니다."
-        ],
-        "zh": [
-          "ReAct 将推理与行动交替进行：智能体思考、调用工具、观察结果，如此循环，每一步都即时决策。",
-          "先规划后执行的方式先制定完整计划再逐步执行，整体思路更清晰，也更容易跟踪进度。",
-          "ReAct 能很好地应对出乎意料的结果，但在长任务中可能走偏、重复动作或忘记总体目标。",
-          "先规划后执行每一步的成本可能更低，因为简单的执行器就能照计划行事，但早期计划不佳时，若不修订就可能失败。",
-          "许多实际系统会两者结合：先给出初始计划，用 ReAct 式循环执行，并在观察结果与计划冲突时重新规划。"
-        ],
-        "uz": [
-          "ReAct mulohaza va harakatni almashtirib boradi: agent o‘ylaydi, asbob chaqiradi, natijani kuzatadi va takrorlaydi, har bir qadamni ketma-ket hal qiladi.",
-          "Plan-and-execute avval to‘liq reja tuzadi, so‘ng qadamlarni bajaradi. Bu umumiy ko‘rinishni aniqroq qiladi va jarayonni kuzatishni osonlashtiradi.",
-          "ReAct kutilmagan natijalarga yaxshi moslashadi, lekin uzoq vazifalarda yo‘ldan adashishi, o‘zini takrorlashi yoki umumiy maqsadni yo‘qotishi mumkin.",
-          "Plan-and-execute har bir qadamda arzonroq bo‘lishi mumkin, chunki oddiy ijrochi rejaga amal qila oladi, lekin dastlabki reja yomon bo‘lsa va qayta ko‘rib chiqilmasa, muvaffaqiyatsizlikka uchrashi mumkin.",
-          "Ko‘pgina amaliy tizimlar ikkalasini birlashtiradi: dastlabki reja, ReAct uslubidagi sikl va kuzatuvlar rejaga zid bo‘lsa qayta rejalashtirish."
         ]
       }
     },
@@ -161,9 +97,7 @@
       "id": "prompt-injection",
       "questions": {
         "en": "How can research agents defend against prompt injection?",
-        "ko": "리서치 에이전트는 프롬프트 인젝션을 어떻게 방어할 수 있나요?",
-        "zh": "研究型智能体如何防御提示词注入？",
-        "uz": "Tadqiqot agentlari prompt injection’dan qanday himoyalanishi mumkin?"
+        "ko": "리서치 에이전트는 프롬프트 인젝션을 어떻게 방어할 수 있나요?"
       },
       "findings": {
         "en": [
@@ -179,20 +113,6 @@
           "localhost나 사설 네트워크 주소로의 요청을 거부하는 것처럼 위험한 동작을 설계 단계에서 차단합니다.",
           "프롬프트에서 시스템 지시와 검색된 텍스트를 명확히 분리하고, 출처 안에 있는 명령은 무시하도록 모델에 지시합니다.",
           "프롬프트 수준의 방어는 완벽하지 않으므로 도구 호출을 기록하고 검토하여 이상 행동을 쉽게 발견할 수 있게 합니다."
-        ],
-        "zh": [
-          "将工具返回的所有内容（如网页和 PDF）视为不可信的数据，绝不当作指令。",
-          "只给智能体提供必需的工具，这样被注入的指令实际上能做的事情就很少。",
-          "在设计上阻止高风险操作，例如拒绝访问 localhost 或内网地址。",
-          "在提示词中清晰区分系统指令与检索到的文本，并要求模型忽略来源内容里出现的命令。",
-          "记录并审查工具调用，因为提示词层面的防御并不完美，应当便于发现异常行为。"
-        ],
-        "uz": [
-          "Veb-sahifa va PDF kabi asboblar qaytargan hamma narsani ishonchsiz ma’lumot deb hisoblang, hech qachon ko‘rsatma sifatida qabul qilmang.",
-          "Agentga faqat kerakli asboblarni bering, shunda kiritilgan yashirin ko‘rsatma amalda kam narsa qila oladi.",
-          "Xavfli harakatlarni dizayn darajasida bloklang, masalan localhost yoki yopiq tarmoq manzillariga so‘rovlarni rad eting.",
-          "Promptda tizim ko‘rsatmalarini topilgan matndan aniq ajrating va modelga manbalar ichidagi buyruqlarni e’tiborsiz qoldirishni buyuring.",
-          "Prompt darajasidagi himoya mukammal emas, shuning uchun asbob chaqiruvlarini jurnalga yozing va tekshiring, g‘alati xatti-harakat osongina ko‘zga tashlansin."
         ]
       }
     },
@@ -200,9 +120,7 @@
       "id": "evaluate-agents",
       "questions": {
         "en": "How should LLM agents be evaluated?",
-        "ko": "LLM 에이전트는 어떻게 평가해야 하나요?",
-        "zh": "应该如何评估大模型智能体？",
-        "uz": "LLM agentlarini qanday baholash kerak?"
+        "ko": "LLM 에이전트는 어떻게 평가해야 하나요?"
       },
       "findings": {
         "en": [
@@ -218,20 +136,6 @@
           "정답이어도 매우 느린 에이전트는 쓰기 어려울 수 있으므로 지연 시간, 토큰 사용량, 실행당 비용, 실패율 같은 운영 지표를 추적합니다.",
           "에이전트의 동작은 실행마다 달라지고 한 번의 성공은 우연일 수 있으므로 각 질문을 여러 번 실행합니다.",
           "자동 검사, 모델 기반 채점, 사람의 검토를 결합하되 모델 채점자에게 편향이 있을 수 있음을 기억해야 합니다."
-        ],
-        "zh": [
-          "既要评估最终结果（如答案的正确性和完整性），也要评估过程（如工具选择和步骤数量）。",
-          "使用带有预期答案的固定测试问题集，这样每次修改后都可以对比运行结果。",
-          "跟踪延迟、令牌用量、单次运行成本和失败率等运行指标，因为答案正确但非常慢的智能体可能无法投入使用。",
-          "每个问题应运行多次，因为智能体的行为每次都可能不同，单次成功可能只是运气。",
-          "结合自动检查、基于模型的评分和人工审核，并记住模型评分者可能存在偏差。"
-        ],
-        "uz": [
-          "Yakuniy natijani (javobning to‘g‘riligi va to‘liqligi) ham, jarayonni (asbob tanlovi va qadamlar soni) ham baholang.",
-          "Kutilgan javoblari bilan belgilangan test savollari to‘plamidan foydalaning, shunda har bir o‘zgarishdan keyin natijalarni solishtirish mumkin.",
-          "Kechikish, token sarfi, bir ishga tushirish narxi va xatolik darajasi kabi ishlash ko‘rsatkichlarini kuzating: to‘g‘ri, lekin juda sekin agentdan foydalanib bo‘lmasligi mumkin.",
-          "Har bir savolni bir necha marta ishga tushiring, chunki agent xatti-harakati har safar farq qiladi va bitta muvaffaqiyat tasodif bo‘lishi mumkin.",
-          "Avtomatik tekshiruv, model asosidagi baholash va inson ko‘rigini birlashtiring, model baholovchilar xolis bo‘lmasligi mumkinligini unutmang."
         ]
       }
     }
@@ -246,16 +150,6 @@
       "목업 결과: 입력하신 질문 “{topic}”에 맞는 준비된 목업 항목이 없습니다.",
       "준비된 목업 질문 중 하나를 입력하면 전체 조사 결과 목록을 볼 수 있습니다(README.md 또는 backend/mock_data.json 참고).",
       "라이브 모드에서는 에이전트가 웹을 검색하여 어떤 질문이든 실제 조사 결과를 작성합니다."
-    ],
-    "zh": [
-      "模拟结果：没有与您的问题“{topic}”匹配的预设模拟条目。",
-      "请输入某个预设的模拟问题（见 README.md 或 backend/mock_data.json），即可看到完整的研究发现列表。",
-      "在实时模式下，智能体会搜索网络，并为任意问题生成真实的研究发现。"
-    ],
-    "uz": [
-      "MOCK NATIJA: “{topic}” savolingizga mos tayyor mock yozuv topilmadi.",
-      "Topilmalarning to‘liq ro‘yxatini ko‘rish uchun tayyor mock savollardan birini bering (README.md yoki backend/mock_data.json’ga qarang).",
-      "Jonli rejimda agent internetda qidiradi va istalgan savol uchun haqiqiy topilmalarni yozadi."
     ]
   }
 }
